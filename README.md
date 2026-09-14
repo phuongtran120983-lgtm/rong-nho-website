@@ -107,4 +107,4 @@ sudo certbot --nginx -d rongnhonhatrang.vn -d www.rongnhonhatrang.vn
 * `RESEND_API_KEY`: Khóa kết nối Resend Email Marketing.
 * `RESEND_FROM_EMAIL`: Địa chỉ email người gửi (`hi@rongnhonhatrang.vn`).
 * `SEPAY_BANK_ACCOUNT`: Số tài khoản nhận tiền Sepay (`0933951409`).
-* `SEPAY_BANK_SHORTCODE`: Ngân hàng (`MB`).
+* `SEPAY_BANK_SHORTCODE`: Ngân hàng (`ACB`).

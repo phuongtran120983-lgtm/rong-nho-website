@@ -14,7 +14,7 @@
 | **2** | Kiểm tra hộp thư Gmail | Nhận ngay tức thì cả 3 email sequence từ `Phương Trần - Rong Nho Nha Trang <hi@rongnhonhatrang.vn>`. | ✅ PASS |
 | **3** | Chat với Chatbot AI tư vấn 3 câu (giá cả, bé lười ăn rau, "để tôi nghĩ thêm") | Chatbot phản hồi đúng kịch bản, giọng mộc mạc, tư vấn đúng mẹo sốc nhiệt 3-3 và thuyết phục khéo léo. | ✅ PASS |
 | **4** | Đặt mua hàng tại `rongnhonhatrang.vn/thanh-toan` | Hệ thống sinh mã đơn `#RN...` và mã VietQR Sepay kèm đúng số tiền và nội dung chuyển khoản. | ✅ PASS |
-| **5** | Chuyển khoản thật 2.000đ qua VietQR | Tiền về tài khoản MB Bank `0933951409`, Sepay webhook bắn tín hiệu về hệ thống. | ✅ PASS |
+| **5** | Chuyển khoản thật 2.000đ qua VietQR | Tiền về tài khoản ACB (Á Châu) `0933951409`, Sepay webhook bắn tín hiệu về hệ thống. | ✅ PASS |
 | **6** | Kiểm tra Email xác nhận đơn hàng | Nhận được email biên nhận đơn hàng chi tiết `#RN...` từ `hi@rongnhonhatrang.vn`. | ✅ PASS |
 | **7** | Kiểm tra trang quản trị `/admin` trên cửa sổ ẩn danh | Đơn hàng xuất hiện ngay trên tab Đơn hàng và chuyển trạng thái `✅ success`. Tồn kho hàng vật lý tự động trừ 1. | ✅ PASS |
 

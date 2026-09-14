@@ -168,7 +168,7 @@
             </div>
             <div class="flex justify-between items-center pb-2 border-b border-slate-200">
               <span class="text-slate-500 font-medium">Ngân hàng thụ hưởng:</span>
-              <span id="disp-bank" class="font-bold text-slate-900 uppercase">MBBANK</span>
+              <span id="disp-bank" class="font-bold text-slate-900 uppercase">ACB (NGÂN HÀNG Á CHÂU)</span>
             </div>
             <div class="flex justify-between items-center pb-2 border-b border-slate-200">
               <span class="text-slate-500 font-medium">Số tài khoản:</span>
@@ -285,7 +285,7 @@
         }
       } catch(e) {}
       configData = {
-        bank_shortcode: "MB",
+        bank_shortcode: "ACB",
         bank_account: "0933951409",
         account_holder: "TRAN THI PHUONG"
       };
@@ -483,14 +483,16 @@
       document.getElementById('checkout-step-payment').classList.remove('hidden');
 
       document.getElementById('disp-order-code').innerText = order.order_code;
-      document.getElementById('disp-bank').innerText = configData.bank_shortcode || 'MB';
+      document.getElementById('disp-bank').innerText = configData.bank_shortcode || 'ACB';
       document.getElementById('disp-acc').innerText = configData.bank_account || '0933951409';
       document.getElementById('disp-holder').innerText = configData.account_holder || 'TRAN THI PHUONG';
       document.getElementById('disp-amount').innerText = new Intl.NumberFormat('vi-VN').format(order.amount) + '₫';
       document.getElementById('disp-content').innerText = order.order_code;
 
       // Sinh URL mã QR chuẩn Sepay
-      const qrUrl = `https://qr.sepay.vn/img?acc=${encodeURIComponent(configData.bank_account || '0933951409')}&bank=${encodeURIComponent(configData.bank_shortcode || 'MB')}&amount=${order.amount}&des=${encodeURIComponent(order.order_code)}`;
+      const bBank = configData.bank_shortcode || 'ACB';
+      const bAcc = configData.bank_account || '0933951409';
+      const qrUrl = `https://qr.sepay.vn/img?acc=${encodeURIComponent(bAcc)}&bank=${encodeURIComponent(bBank)}&amount=${order.amount}&des=${encodeURIComponent(order.order_code)}`;
       document.getElementById('qr-image').src = qrUrl;
 
       // Bắt đầu tự động kiểm tra mỗi 2.5s

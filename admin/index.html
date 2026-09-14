@@ -804,7 +804,7 @@
     async function loadConfig() {
       const res = await fetch('/api/config');
       const cfg = await res.json();
-      document.getElementById('cfg-bank').value = cfg.bank_shortcode || 'MB';
+      document.getElementById('cfg-bank').value = cfg.bank_shortcode || 'ACB';
       document.getElementById('cfg-acc').value = cfg.bank_account || '';
       document.getElementById('cfg-holder').value = cfg.account_holder || '';
       document.getElementById('cfg-token').value = cfg.sepay_api_token || '';
