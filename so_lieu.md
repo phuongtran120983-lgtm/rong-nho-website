@@ -33,5 +33,5 @@
 * **Domain thật:** `https://rongnhonhatrang.vn` (Nameservers 123HOST, trỏ Netlify IP 75.2.60.5).
 * **Trang thanh toán tự động:** `https://rongnhonhatrang.vn/thanh-toan` (Tự động sinh mã VietQR theo mã đơn hàng).
 * **Trang quản trị CRM:** `https://rongnhonhatrang.vn/admin` (3 tab: Sản phẩm, Khách hàng, Đơn hàng đồng bộ đám mây 24/7).
-* **Cổng thanh toán tự động Sepay:** Tích hợp ACB (Ngân hàng TMCP Á Châu) `0933951409`, tự động cập nhật trạng thái đơn sang `success`.
+* **Cổng thanh toán tự động Sepay:** Tích hợp ACB (Ngân hàng TMCP Á Châu) `876997`, tự động cập nhật trạng thái đơn sang `success`.
 * **Hệ thống Email Marketing Resend:** Đã verify 100% domain `rongnhonhatrang.vn`, gửi tự động từ `hi@rongnhonhatrang.vn`.

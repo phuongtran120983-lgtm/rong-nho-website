@@ -4,7 +4,7 @@
 let memoryConfig = {
   bank_shortcode: 'ACB',
   bank_name: 'ACB - Ngân Hàng TMCP Á Châu',
-  bank_account: '0933951409',
+  bank_account: '876997',
   account_holder: 'TRAN THI PHUONG',
   sepay_api_token: process.env.SEPAY_API_TOKEN || ''
 };
