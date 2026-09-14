@@ -1,0 +1,9 @@
+{
+  "name": "rong-nho-website",
+  "version": "1.0.0",
+  "description": "Rong Nho Nha Trang Sales & CRM System",
+  "main": "index.html",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

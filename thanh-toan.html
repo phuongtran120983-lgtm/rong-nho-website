@@ -412,6 +412,7 @@
       btn.innerHTML = '⏳ Đang tạo đơn hàng & sinh mã QR...';
 
       
+      try {
         let order = null;
         try {
           const res = await fetch('/api/orders', {
@@ -432,36 +433,44 @@
           if (res.ok) {
             order = await res.json();
           }
-        } catch(e) {}
+        } catch(e) {
+          console.warn('Lỗi kết nối /api/orders:', e);
+        }
 
         if (!order || !order.order_code) {
-          // Client-side generated order for static deployment
           const randCode = 'RN' + Math.floor(1000 + Math.random() * 9000);
           order = {
             order_code: randCode,
             customer_name: name,
             customer_phone: phone,
+            customer_email: email,
             product_id: product.id,
             product_name: product.name,
             amount: product.price,
-            status: 'pending'
+            status: 'pending',
+            created_at: new Date().toLocaleString('vi-VN')
           };
-          try {
-            const saved = JSON.parse(localStorage.getItem('rn_orders') || '[]');
-            saved.unshift(order);
-            localStorage.setItem('rn_orders', JSON.stringify(saved));
-          } catch(err){}
+        }
+
+        // Tự động kích hoạt email xác nhận nếu có email
+        if (email) {
+          fetch('/.netlify/functions/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: 'order_confirmation',
+              name: name,
+              email: email,
+              order: order
+            })
+          }).catch(e => console.warn('Lỗi gửi email xác nhận:', e));
         }
 
         activeOrderCode = order.order_code;
         rawAmount = order.amount;
         showPaymentScreen(order, product);
-
-        } else {
-          alert('Có lỗi xảy ra khi tạo đơn: ' + (order.error || 'Vui lòng thử lại.'));
-        }
       } catch (err) {
-        console.error(err);
+        console.error('Lỗi tạo đơn:', err);
         alert('Không thể kết nối máy chủ!');
       } finally {
         btn.disabled = false;

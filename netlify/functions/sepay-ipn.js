@@ -45,6 +45,23 @@ exports.handler = async function (event) {
     } catch (err) {
       console.error('Lỗi gửi Telegram:', err);
     }
+  // Tự động tìm mã đơn RN... trong nội dung chuyển khoản và cập nhật status sang success trong Netlify Blobs
+  const match = (noiDung || '').match(/RN\d+/i);
+  if (match) {
+    const code = match[0].toUpperCase();
+    try {
+      const { getStore } = require('@netlify/blobs');
+      const store = getStore({ name: 'rong_nho_orders', consistency: 'strong' });
+      const ord = await store.get(code, { type: 'json' });
+      if (ord) {
+        ord.status = 'success';
+        ord.paid_at = new Date().toISOString();
+        await store.setJSON(code, ord);
+        console.log(`[Sepay IPN] Tự động khớp và kích hoạt thành công đơn: ${code}`);
+      }
+    } catch (e) {
+      console.warn('Lỗi cập nhật đơn Sepay:', e);
+    }
   }
 
   // Luôn trả về 200 để Sepay biết đã nhận thành công
