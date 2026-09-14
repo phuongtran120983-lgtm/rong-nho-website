@@ -268,7 +268,8 @@ class UmibugoChatbot {
     } else if (action === 'buy') {
       this.handleBuyClick();
     } else if (action === 'home') {
-      window.location.href = '/';
+      this.toggleChat();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -292,8 +293,8 @@ class UmibugoChatbot {
     registerBtn.textContent = '📝 Đăng ký danh sách chờ';
     registerBtn.onclick = () => {
       this.addMessage("Bạn bấm 'Đăng ký danh sách chờ'", 'user');
-      window.location.href = '#order-form';
-      setTimeout(() => this.toggleChat(), 500);
+      this.toggleChat();
+      document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     const callBtn = document.createElement('button');
@@ -312,7 +313,8 @@ class UmibugoChatbot {
   handleBuyNowClick() {
     this.addMessage("Tuyệt vời! Mình sẽ dẫn bạn đến form đăng ký nhé! 😊", 'bot');
     setTimeout(() => {
-      window.location.href = '#order-form';
+      this.toggleChat();
+      document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth' });
     }, 1000);
   }
 
