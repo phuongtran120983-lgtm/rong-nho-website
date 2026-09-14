@@ -174,6 +174,24 @@ exports.handler = async function (event) {
       }).catch(() => {});
     } catch(err) {}
 
+    // Tự động kích hoạt email xác nhận đơn hàng qua Resend nếu có email khách
+    if (newOrder.customer_email) {
+      try {
+        const sendEmailHandler = require('./send-email').handler;
+        sendEmailHandler({
+          httpMethod: 'POST',
+          body: JSON.stringify({
+            type: 'order_confirmation',
+            name: newOrder.customer_name,
+            email: newOrder.customer_email,
+            order: newOrder
+          })
+        }).catch(err => console.warn('Lỗi gửi email xác nhận tự động:', err));
+      } catch (err) {
+        console.warn('Lỗi gọi send-email handler:', err);
+      }
+    }
+
     return {
       statusCode: 200,
       headers,
