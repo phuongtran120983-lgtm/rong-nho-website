@@ -1344,11 +1344,18 @@
 
         // 3. Trigger chuỗi Email Marketing tự động (Resend)
         if (emailVal) {
+          const emailPayload = JSON.stringify({ name: nameVal, email: emailVal });
           fetch('/api/email/welcome', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: nameVal, email: emailVal })
-          }).catch(err => console.warn('Lỗi gửi email:', err));
+            body: emailPayload
+          }).catch(() => {
+            fetch('/.netlify/functions/send-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: emailPayload
+            }).catch(e => console.warn('Lỗi gửi email:', e));
+          });
         }
 
         alert('🎁 CẢM ƠN BẠN ĐÃ THAM GIA KHẢO SÁT!\n\nThông tin đã được ghi nhận vào hệ thống CRM. Voucher ưu đãi 40% và quà tặng đã được gửi đến email ' + (emailVal || 'của bạn') + '!');

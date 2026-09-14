@@ -1,3 +1,5 @@
 /thanh-toan  /thanh-toan/index.html  200
 /admin       /admin/index.html       200
 /ebook       /ebook/index.html       200
+/api/email/* /.netlify/functions/send-email 200
+/api/send-email /.netlify/functions/send-email 200
