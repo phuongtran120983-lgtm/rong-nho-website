@@ -818,19 +818,23 @@
         <!-- FORM KHẢO SÁT TÍCH HỢP FORMSPREE (TỰ ĐỘNG LƯU VÀO GOOGLE SHEETS) -->
         <form id="survey-form" onsubmit="handleSurveySubmit(event)" class="space-y-6 text-xs sm:text-sm">
           
-          <!-- 1. Tên và SĐT/Zalo -->
+          <!-- 1. Tên, SĐT/Zalo và Email -->
           <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-3">
             <label class="block font-bold text-gray-900 text-sm">
-              1. Cho mình xin Tên và Số điện thoại/Zalo để gửi mã quà tặng cho bạn nhé:
+              1. Cho mình xin Tên, Số điện thoại và Email để gửi mã quà tặng & voucher cho bạn nhé:
             </label>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label class="block text-[11px] font-semibold text-gray-600 mb-1">Họ và tên của bạn: *</label>
                 <input required type="text" id="survey-name" name="Ho_va_ten" placeholder="Nhập họ và tên..." class="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:border-emerald-600" />
               </div>
               <div>
-                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Số Zalo nhận quà: *</label>
-                <input required type="tel" id="survey-phone" name="So_dien_thoai_Zalo" placeholder="Nhập số điện thoại/Zalo..." class="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:border-emerald-600" />
+                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Số Zalo/SĐT nhận quà: *</label>
+                <input required type="tel" id="survey-phone" name="So_dien_thoai_Zalo" placeholder="Nhập số điện thoại/Zalo..." class="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:border-emerald-600 font-mono" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Email nhận quà & Voucher: *</label>
+                <input required type="email" id="survey-email" name="Email" placeholder="Ví dụ: ban@gmail.com" class="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:border-emerald-600" />
               </div>
             </div>
           </div>
@@ -1313,14 +1317,41 @@
         formData.append('body', answers.join(' | '));
       }
 
+      const nameVal = formData.get('name') || formData.get('Ho_va_ten') || '';
+      const phoneVal = formData.get('phone') || formData.get('So_dien_thoai_Zalo') || '';
+      const emailVal = formData.get('Email') || '';
+
       try {
-        await fetch(scriptUrl, {
+        // 1. Gửi vào Google Sheets
+        fetch(scriptUrl, {
           method: 'POST',
           body: formData,
           mode: 'no-cors'
-        });
+        }).catch(err => console.warn('Lỗi Google Sheets:', err));
 
-        alert('🎁 CẢM ƠN BẠN ĐÃ THAM GIA KHẢO SÁT!\n\nPhản hồi đã được ghi nhận vào Google Sheets. Mã quà tặng và ưu đãi sẽ được gửi đến số Zalo của bạn sớm nhất!');
+        // 2. Lưu trực tiếp vào CRM Database (bảng customers)
+        await fetch('/api/customers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: nameVal,
+            phone: phoneVal,
+            zalo: phoneVal,
+            email: emailVal,
+            address: ''
+          })
+        }).catch(err => console.warn('Lỗi lưu CRM:', err));
+
+        // 3. Trigger chuỗi Email Marketing tự động (Resend)
+        if (emailVal) {
+          fetch('/api/email/welcome', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: nameVal, email: emailVal })
+          }).catch(err => console.warn('Lỗi gửi email:', err));
+        }
+
+        alert('🎁 CẢM ƠN BẠN ĐÃ THAM GIA KHẢO SÁT!\n\nThông tin đã được ghi nhận vào hệ thống CRM. Voucher ưu đãi 40% và quà tặng đã được gửi đến email ' + (emailVal || 'của bạn') + '!');
         form.reset();
       } catch (err) {
         console.error('Lỗi gửi khảo sát:', err);
