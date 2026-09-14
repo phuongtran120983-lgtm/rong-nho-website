@@ -1317,9 +1317,28 @@
         formData.append('body', answers.join(' | '));
       }
 
-      const nameVal = formData.get('name') || formData.get('Ho_va_ten') || '';
-      const phoneVal = formData.get('phone') || formData.get('So_dien_thoai_Zalo') || '';
-      const emailVal = formData.get('Email') || '';
+      const nameVal = (formData.get('name') || formData.get('Ho_va_ten') || '').trim();
+      const phoneVal = (formData.get('phone') || formData.get('So_dien_thoai_Zalo') || '').trim();
+      const emailVal = (formData.get('Email') || '').trim();
+
+      // Kiểm tra validate Số điện thoại chuẩn Việt Nam (10 chữ số)
+      const cleanPhone = phoneVal.replace(/[\s\.\-]/g, '');
+      const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
+      if (!phoneRegex.test(cleanPhone)) {
+        alert('⚠️ Vui lòng nhập đúng Số điện thoại liên hệ hợp lệ (10 chữ số, ví dụ: 0933951409)!');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        return;
+      }
+
+      // Kiểm tra validate định dạng Email hợp lệ
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailVal)) {
+        alert('⚠️ Vui lòng nhập đúng định dạng địa chỉ Email (ví dụ: khachhang@gmail.com)!');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        return;
+      }
 
       try {
         // 1. Gửi vào Google Sheets
