@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh Toán An Toàn Qua VietQR / Sepay - Rong Nho Nha Trang</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.95; transform: scale(1.02); }
+    }
+    .pulse-card { animation: pulse-slow 3s infinite ease-in-out; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 py-3.5 shadow-xs">
+    <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 bg-emerald-700 rounded-xl flex items-center justify-center text-white font-black text-base shadow-sm">
+          🌿
+        </div>
+        <div>
+          <div class="font-extrabold text-slate-900 leading-tight">RONG NHO NHA TRANG</div>
+          <div class="text-[10px] text-slate-500 font-semibold tracking-wider uppercase">Cổng Thanh Toán Tự Động Sepay</div>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 text-xs">
+        <a href="/" class="text-slate-500 hover:text-slate-900 font-medium hidden sm:inline">← Quay lại trang chủ</a>
+        <a href="/admin" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg border border-slate-300">
+          Admin Panel ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+    
+    <!-- STEP 1: FORM ĐIỀN THÔNG TIN ĐẶT HÀNG -->
+    <div id="checkout-step-form" class="bg-white border-2 border-emerald-600 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-700"></div>
+
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 px-3.5 py-1 rounded-full text-xs font-bold mb-2">
+          <span>🔒</span> Thanh Toán Tự Động VietQR Không Cần Chờ Duyệt
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          XÁC NHẬN ĐƠN HÀNG & THANH TOÁN
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Hệ thống xác nhận tiền vào tài khoản và tự động kích hoạt đơn hàng trong 3 giây.
+        </p>
+      </div>
+
+      <form id="order-form" onsubmit="submitCheckoutOrder(event)" class="space-y-5">
+        
+        <!-- Chọn sản phẩm -->
+        <div>
+          <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+            1. Chọn Sản Phẩm / Gói Ưu Đãi *
+          </label>
+          <div class="space-y-2.5" id="product-radio-group">
+            <!-- Render products via JS -->
+            <div class="text-center py-4 text-slate-400 text-xs">Đang tải danh mục sản phẩm...</div>
+          </div>
+        </div>
+
+        <!-- Thông tin khách hàng -->
+        <div class="pt-3 border-t border-slate-100">
+          <div class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
+            2. Thông Tin Người Nhận Hàng
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Họ và Tên <span class="text-red-500">*</span>
+              </label>
+              <input type="text" id="cust-name" required placeholder="Ví dụ: Nguyễn Thị Phương" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all" />
+              <div id="err-name" class="text-[11px] text-red-500 mt-1 hidden">Vui lòng nhập họ và tên hợp lệ (tối thiểu 2 từ).</div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Số Điện Thoại Nhận Hàng <span class="text-red-500">*</span>
+              </label>
+              <input type="tel" id="cust-phone" required placeholder="Ví dụ: 0933951409" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all font-mono" />
+              <div id="err-phone" class="text-[11px] text-red-500 mt-1 hidden">Số điện thoại không hợp lệ (Phải là số Việt Nam 10 chữ số, ví dụ 0933951409).</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Email (Nhận biên lai / Link Ebook) <span class="text-red-500">*</span>
+              </label>
+              <input type="email" id="cust-email" required placeholder="email@domain.com" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all" />
+              <div id="err-email" class="text-[11px] text-red-500 mt-1 hidden">Vui lòng nhập email đúng định dạng (ví dụ: ten@gmail.com).</div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Địa Chỉ Nhận Hàng Chi Tiết
+              </label>
+              <input type="text" id="cust-address" placeholder="Số nhà, tên đường, phường/xã, quận/huyện..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">
+              Ghi Chú Đơn Hàng (Nếu có)
+            </label>
+            <input type="text" id="order-notes" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi giao..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all" />
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-4">
+          <button type="submit" id="btn-submit-order" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all text-base uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+            <span>👉 TIẾP TỤC: QUÉT MÃ VIETQR THANH TOÁN</span>
+          </button>
+          <div class="text-center text-[11px] text-slate-400 mt-2">
+            🛡️ Mã QR được tạo động chuẩn Sepay & VietQR Napas 24/7. An toàn tuyệt đối.
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- STEP 2: MÀN HÌNH QUÉT MÃ QR THANH TOÁN (SEPAY VIETQR) -->
+    <div id="checkout-step-payment" class="bg-white border-2 border-emerald-600 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden hidden">
+      <div class="text-center mb-6">
+        <span class="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs px-3 py-1 rounded-full border border-amber-300 mb-2">
+          ⏳ ĐANG CHỜ CHUYỂN KHOẢN...
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          QUÉT MÃ VIETQR ĐỂ THANH TOÁN
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Mở App Ngân hàng bất kỳ (MB, Vietcombank, Techcombank, Momo...) và quét mã bên dưới.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- QR Code Block -->
+        <div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div class="p-3 bg-white rounded-2xl shadow-md border border-slate-200 mb-3 pulse-card">
+            <img id="qr-image" src="" alt="Mã VietQR Sepay" class="w-60 h-60 object-contain rounded-lg" />
+          </div>
+          <div class="flex items-center gap-2 text-xs text-emerald-700 font-bold animate-pulse">
+            <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+            <span>Hệ thống tự động kiểm tra mỗi 2 giây...</span>
+          </div>
+        </div>
+
+        <!-- Transfer Info Block -->
+        <div class="space-y-3.5 text-xs">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5">
+            <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+              <span class="text-slate-500 font-medium">Mã đơn hàng:</span>
+              <span id="disp-order-code" class="font-mono font-black text-sm text-emerald-700">RN....</span>
+            </div>
+            <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+              <span class="text-slate-500 font-medium">Ngân hàng thụ hưởng:</span>
+              <span id="disp-bank" class="font-bold text-slate-900 uppercase">MBBANK</span>
+            </div>
+            <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+              <span class="text-slate-500 font-medium">Số tài khoản:</span>
+              <div class="flex items-center gap-2">
+                <span id="disp-acc" class="font-mono font-black text-sm text-slate-900">0933951409</span>
+                <button type="button" onclick="copyText('disp-acc')" class="text-[10px] bg-slate-200 hover:bg-slate-300 px-2 py-0.5 rounded font-bold">Copy</button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+              <span class="text-slate-500 font-medium">Chủ tài khoản:</span>
+              <span id="disp-holder" class="font-bold text-slate-900 uppercase">TRAN THI PHUONG</span>
+            </div>
+            <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+              <span class="text-slate-500 font-medium">Số tiền chuyển:</span>
+              <div class="flex items-center gap-2">
+                <span id="disp-amount" class="font-black text-base text-red-600">299.000₫</span>
+                <button type="button" onclick="copyRawAmount()" class="text-[10px] bg-slate-200 hover:bg-slate-300 px-2 py-0.5 rounded font-bold">Copy</button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-slate-500 font-medium">Nội dung chuyển khoản:</span>
+              <div class="flex items-center gap-2">
+                <span id="disp-content" class="font-mono font-black text-sm text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">RN....</span>
+                <button type="button" onclick="copyText('disp-content')" class="text-[10px] bg-slate-200 hover:bg-slate-300 px-2 py-0.5 rounded font-bold">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-[11px] text-amber-900 leading-relaxed">
+            ⚠️ <strong>Lưu ý quan trọng:</strong> Vui lòng giữ nguyên <strong>Nội dung chuyển khoản</strong> để hệ thống tự động nhận diện đơn hàng của bạn ngay khi tiền vào!
+          </div>
+
+          <!-- Nút mô phỏng hoặc test nhanh nếu người dùng muốn test ngay -->
+          <div class="pt-2 flex items-center justify-between text-[11px]">
+            <button type="button" onclick="backToOrderForm()" class="text-slate-500 hover:text-slate-800 font-bold">
+              ← Đổi thông tin đặt hàng
+            </button>
+            <a href="/admin" target="_blank" class="text-emerald-700 hover:underline font-bold">
+              Kiểm tra đơn trên Admin ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: MÀN HÌNH CẢM ƠN & THANH TOÁN THÀNH CÔNG -->
+    <div id="checkout-step-success" class="bg-white border-2 border-emerald-600 rounded-3xl p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden hidden">
+      <div class="w-20 h-20 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border-2 border-emerald-300 animate-bounce">
+        ✓
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-black text-emerald-800 tracking-tight">
+        🎉 THANH TOÁN THÀNH CÔNG!
+      </h2>
+      <p class="text-sm text-slate-600 max-w-md mx-auto mt-2">
+        Hệ thống Sepay đã ghi nhận số tiền chuyển khoản của bạn. Đơn hàng đã chuyển sang trạng thái <span class="font-bold text-emerald-700">SUCCESS</span>.
+      </p>
+
+      <div class="bg-slate-50 max-w-md mx-auto my-6 p-5 rounded-2xl border border-slate-200 text-left text-xs space-y-2">
+        <div class="flex justify-between">
+          <span class="text-slate-500">Mã đơn hàng:</span>
+          <span id="succ-order-code" class="font-mono font-bold text-slate-900"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Khách hàng:</span>
+          <span id="succ-customer-name" class="font-bold text-slate-900"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Sản phẩm:</span>
+          <span id="succ-product-name" class="font-semibold text-slate-900"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">Số tiền đã trả:</span>
+          <span id="succ-amount" class="font-black text-emerald-700 text-sm"></span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div id="digital-download-box" class="mb-6 hidden">
+        <a href="/ebook" target="_blank" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg transition-transform hover:scale-105 text-sm">
+          <span>📖 Đọc & Tải Ebook PDF Của Bạn Ngay</span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="/" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-6 py-3 rounded-xl shadow-xs transition-colors">
+          Về Trang Chủ
+        </a>
+        <a href="/admin" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-5 py-3 rounded-xl border border-slate-300">
+          Xem Trong Admin Panel ↗
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let productsList = [];
+    let configData = {};
+    let activeOrderCode = null;
+    let pollInterval = null;
+    let rawAmount = 0;
+
+    async function init() {
+      await Promise.all([loadConfig(), loadProducts()]);
+    }
+
+    
+    async function loadConfig() {
+      try {
+        const res = await fetch('/api/config');
+        if (res.ok) {
+          configData = await res.json();
+          return;
+        }
+      } catch(e) {}
+      configData = {
+        bank_shortcode: "MB",
+        bank_account: "0933951409",
+        account_holder: "TRAN THI PHUONG"
+      };
+    }
+
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/products');
+        if (res.ok) {
+          productsList = await res.json();
+        }
+      } catch(e) {}
+
+      if (!productsList || productsList.length === 0) {
+        productsList = [
+          { id: 1, name: "COMBO MUA 3 TẶNG 1 (Tổng 4 Hộp)", type: "physical", price: 299000, description: "Tặng 2 chai sốt mè rang mè Nhật + Freeship toàn quốc. 100% rong nho Nha Trang tự nhiên." },
+          { id: 2, name: "COMBO MUA 5 TẶNG 2 (Tổng 7 Hộp)", type: "physical", price: 480000, description: "Tặng 4 chai sốt mè rang mè Nhật + Freeship toàn quốc. Tiết kiệm cho cả gia đình." },
+          { id: 3, name: "Gói dùng thử 1 Hộp (5 gói tách nước)", type: "physical", price: 120000, description: "Tặng 1 chai sốt mè mini, phí ship 30k toàn quốc. Dành cho khách trải nghiệm." },
+          { id: 4, name: "Ebook: Cẩm Nang 15 Món Ăn Eat Clean Cùng Rong Nho Nha Trang", type: "digital", price: 99000, description: "Sản phẩm số: Công thức salad, gỏi, sushi chuẩn Nhật. Tải ngay file PDF sau thanh toán." },
+          { id: 9999, name: "⚡ Gói Test Nhận Tiền Sepay Thật (Test 2.000đ)", type: "digital", price: 2000, description: "Gói chuyển khoản thử nghiệm 2.000đ theo yêu cầu SOP Bước 6." }
+        ];
+      }
+
+
+      // Thêm gói test 2.000đ vào lựa chọn nếu chưa có để học viên test dễ dàng
+      const hasTestProduct = productsList.some(p => p.price === 2000);
+      if (!hasTestProduct) {
+        productsList.push({
+          id: 9999,
+          name: "⚡ Gói Test Nhận Tiền Sepay Thật (Test 2.000đ)",
+          type: "digital",
+          price: 2000,
+          description: "Gói chuyển khoản thử nghiệm 2.000đ theo yêu cầu SOP Bước 6.",
+          stock: null
+        });
+      }
+
+      const container = document.getElementById('product-radio-group');
+      container.innerHTML = productsList.map((p, idx) => {
+        const isChecked = idx === 0 ? 'checked' : '';
+        const isHot = p.price === 299000;
+        const isTest = p.price === 2000;
+
+        return `
+          <label class="flex items-center justify-between p-3.5 border ${isHot ? 'border-2 border-emerald-600 bg-emerald-50/50' : 'border-slate-200 bg-white'} rounded-2xl cursor-pointer hover:bg-slate-50 transition-all">
+            <div class="flex items-center gap-3">
+              <input type="radio" name="selected_product" value="${p.id}" ${isChecked} class="w-4 h-4 text-emerald-600 accent-emerald-600" />
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs sm:text-sm font-bold text-slate-900">${p.name}</span>
+                  ${isHot ? '<span class="bg-red-600 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded">BÁN CHẠY</span>' : ''}
+                  ${isTest ? '<span class="bg-amber-500 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded">TEST 2K</span>' : ''}
+                </div>
+                <div class="text-[11px] text-slate-500 mt-0.5">${p.description || ''}</div>
+              </div>
+            </div>
+            <div class="text-right pl-3 whitespace-nowrap">
+              <div class="text-sm sm:text-base font-black ${isHot ? 'text-emerald-700' : 'text-slate-900'}">${new Intl.NumberFormat('vi-VN').format(p.price)}₫</div>
+            </div>
+          </label>
+        `;
+      }).join('');
+    }
+
+    // Form validation
+    function validateForm(name, phone, email) {
+      let isValid = true;
+
+      // Validate name
+      if (!name || name.trim().length < 2) {
+        document.getElementById('err-name').classList.remove('hidden');
+        isValid = false;
+      } else {
+        document.getElementById('err-name').classList.add('hidden');
+      }
+
+      // Validate phone VN (10 digits, starts with 03, 05, 07, 08, 09)
+      const phoneRegex = /^(0[35789])[0-9]{8}$/;
+      const cleanPhone = phone.replace(/[\s\.\-]/g, '');
+      if (!phoneRegex.test(cleanPhone)) {
+        document.getElementById('err-phone').classList.remove('hidden');
+        isValid = false;
+      } else {
+        document.getElementById('err-phone').classList.add('hidden');
+      }
+
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('err-email').classList.remove('hidden');
+        isValid = false;
+      } else {
+        document.getElementById('err-email').classList.add('hidden');
+      }
+
+      return isValid;
+    }
+
+    // Submit checkout
+    async function submitCheckoutOrder(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim().replace(/[\s\.\-]/g, '');
+      const email = document.getElementById('cust-email').value.trim();
+      const address = document.getElementById('cust-address').value.trim();
+      const notes = document.getElementById('order-notes').value.trim();
+
+      if (!validateForm(name, phone, email)) {
+        return;
+      }
+
+      const selectedRadio = document.querySelector('input[name="selected_product"]:checked');
+      if (!selectedRadio) {
+        alert('Vui lòng chọn sản phẩm cần mua!');
+        return;
+      }
+
+      const prodId = parseInt(selectedRadio.value);
+      const product = productsList.find(p => p.id === prodId);
+
+      const btn = document.getElementById('btn-submit-order');
+      btn.disabled = true;
+      btn.innerHTML = '⏳ Đang tạo đơn hàng & sinh mã QR...';
+
+      
+        let order = null;
+        try {
+          const res = await fetch('/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              customer_name: name,
+              customer_phone: phone,
+              customer_email: email,
+              customer_address: address,
+              product_id: product.id,
+              product_name: product.name,
+              amount: product.price,
+              notes: notes,
+              status: 'pending'
+            })
+          });
+          if (res.ok) {
+            order = await res.json();
+          }
+        } catch(e) {}
+
+        if (!order || !order.order_code) {
+          // Client-side generated order for static deployment
+          const randCode = 'RN' + Math.floor(1000 + Math.random() * 9000);
+          order = {
+            order_code: randCode,
+            customer_name: name,
+            customer_phone: phone,
+            product_id: product.id,
+            product_name: product.name,
+            amount: product.price,
+            status: 'pending'
+          };
+          try {
+            const saved = JSON.parse(localStorage.getItem('rn_orders') || '[]');
+            saved.unshift(order);
+            localStorage.setItem('rn_orders', JSON.stringify(saved));
+          } catch(err){}
+        }
+
+        activeOrderCode = order.order_code;
+        rawAmount = order.amount;
+        showPaymentScreen(order, product);
+
+        } else {
+          alert('Có lỗi xảy ra khi tạo đơn: ' + (order.error || 'Vui lòng thử lại.'));
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Không thể kết nối máy chủ!');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '👉 TIẾP TỤC: QUÉT MÃ VIETQR THANH TOÁN';
+      }
+    }
+
+    function showPaymentScreen(order, product) {
+      document.getElementById('checkout-step-form').classList.add('hidden');
+      document.getElementById('checkout-step-payment').classList.remove('hidden');
+
+      document.getElementById('disp-order-code').innerText = order.order_code;
+      document.getElementById('disp-bank').innerText = configData.bank_shortcode || 'MB';
+      document.getElementById('disp-acc').innerText = configData.bank_account || '0933951409';
+      document.getElementById('disp-holder').innerText = configData.account_holder || 'TRAN THI PHUONG';
+      document.getElementById('disp-amount').innerText = new Intl.NumberFormat('vi-VN').format(order.amount) + '₫';
+      document.getElementById('disp-content').innerText = order.order_code;
+
+      // Sinh URL mã QR chuẩn Sepay
+      const qrUrl = `https://qr.sepay.vn/img?acc=${encodeURIComponent(configData.bank_account || '0933951409')}&bank=${encodeURIComponent(configData.bank_shortcode || 'MB')}&amount=${order.amount}&des=${encodeURIComponent(order.order_code)}`;
+      document.getElementById('qr-image').src = qrUrl;
+
+      // Bắt đầu tự động kiểm tra mỗi 2.5s
+      if (pollInterval) clearInterval(pollInterval);
+      pollInterval = setInterval(() => checkOrderStatus(order.order_code, product), 2500);
+    }
+
+    async function checkOrderStatus(orderCode, product) {
+      try {
+        const res = await fetch(`/api/orders/check-status?code=${orderCode}`);
+        const data = await res.json();
+        if (data.status === 'success') {
+          clearInterval(pollInterval);
+          showSuccessScreen(data, product);
+        }
+      } catch (e) {
+        console.warn('Lỗi kiểm tra đơn:', e);
+      }
+    }
+
+    function showSuccessScreen(order, product) {
+      document.getElementById('checkout-step-payment').classList.add('hidden');
+      document.getElementById('checkout-step-success').classList.remove('hidden');
+
+      document.getElementById('succ-order-code').innerText = order.order_code;
+      document.getElementById('succ-customer-name').innerText = order.customer_name;
+      document.getElementById('succ-product-name').innerText = order.product_name;
+      document.getElementById('succ-amount').innerText = new Intl.NumberFormat('vi-VN').format(order.amount) + '₫';
+
+      if (product && (product.type === 'digital' || product.name.includes('Ebook'))) {
+        document.getElementById('digital-download-box').classList.remove('hidden');
+      }
+    }
+
+    function backToOrderForm() {
+      if (pollInterval) clearInterval(pollInterval);
+      document.getElementById('checkout-step-payment').classList.add('hidden');
+      document.getElementById('checkout-step-form').classList.remove('hidden');
+    }
+
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text);
+      alert(`Đã copy: ${text}`);
+    }
+
+    function copyRawAmount() {
+      navigator.clipboard.writeText(rawAmount.toString());
+      alert(`Đã copy số tiền: ${rawAmount}`);
+    }
+
+    init();
+  </script>
+
+</body>
+</html>

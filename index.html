@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rong Nho Tách Nước Công Nghệ Nhật Bản - Tươi Ngon Giòn Rụm</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -39,8 +38,6 @@
       animation: pulse-soft 2s infinite ease-in-out;
     }
   </style>
-  <!-- 💚 UMIBUDO CHATBOT STYLES -->
-  <link rel="stylesheet" href="chatbot.css">
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased font-sans">
 
@@ -88,11 +85,17 @@
             </div>
             <div>
               <div class="text-[11px] text-gray-500 uppercase font-bold">Hotline tư vấn</div>
-              <a href="tel:0902515699" class="text-sm font-black text-red-600">0902.515.699</a>
+              <a href="tel:0933951409" class="text-sm font-black text-red-600">0933.951.409</a>
             </div>
           </div>
 
-          <a href="#order-form" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded border border-gray-200 transition-colors">
+          <a href="/thanh-toan" class="flex items-center gap-1.5 bg-[#0b6e3f] hover:bg-emerald-800 text-white px-3.5 py-2 rounded text-xs font-bold transition-colors shadow-xs">
+            <span>💳 Thanh Toán QR</span>
+          </a>
+          <a href="/admin" target="_blank" class="hidden sm:flex items-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-2.5 py-2 rounded text-xs font-bold transition-colors">
+            <span>⚙️ Admin</span>
+          </a>
+          <a href="/thanh-toan" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded border border-gray-200 transition-colors">
             <div class="relative">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -149,36 +152,39 @@
         <!-- CỘT 1: HÌNH ẢNH SẢN PHẨM & GALLERY (5 CỘT) -->
         <div class="lg:col-span-5">
           <!-- Ảnh lớn -->
-          <div class="relative rounded-lg overflow-hidden border border-gray-200 bg-emerald-950 aspect-square group shadow-inner">
-            <img id="main-product-img" src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" alt="Rong nho tách nước" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="relative rounded-2xl overflow-hidden border-2 border-emerald-600/30 bg-emerald-950 aspect-square group shadow-xl">
+            <img id="main-product-img" src="/images/rong_nho_tuoi_nguyen_chum.jpg" alt="Rong nho tách nước công nghệ Nhật Bản" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             
-            <div class="absolute top-3 left-3 bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wide">
-              Chính Hãng 100%
+            <div class="absolute top-3 left-3 bg-red-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide flex items-center gap-1">
+              <span>🔥</span> Chính Hãng Khánh Hòa
             </div>
             
-            <div class="absolute top-3 right-3 bg-emerald-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow">
-              Chuẩn Xuất Khẩu
+            <div class="absolute top-3 right-3 bg-emerald-700/90 backdrop-blur-xs text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg border border-emerald-400/40">
+              Chuẩn Xuất Khẩu Nhật
             </div>
 
             <!-- Overlay Badge -->
-            <div class="absolute bottom-3 left-3 right-3 bg-black/70 backdrop-blur-xs text-white p-2.5 rounded text-center text-xs">
-              🌿 <strong>Tươi giòn chuẩn Nhật</strong> – Ngâm 3 phút nở bung gấp 3 lần
+            <div class="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md text-white p-3 rounded-xl text-center text-xs border border-white/10 shadow-lg">
+              🌿 <strong>100% Tươi Giòn Chuẩn Biển Sạch</strong> – Ngâm 3 phút nở bung gấp 3 lần
             </div>
           </div>
 
-          <!-- Thumbnails -->
-          <div class="grid grid-cols-4 gap-2 mt-3">
-            <button onclick="changeImage('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', this)" class="thumb-btn border-2 border-red-600 rounded overflow-hidden aspect-square">
-              <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Thumb 1" />
+          <!-- Thumbnails 5 ảnh người dùng upload -->
+          <div class="grid grid-cols-5 gap-2 mt-3.5">
+            <button type="button" onclick="changeImage('/images/rong_nho_tuoi_nguyen_chum.jpg', this)" class="thumb-btn border-2 border-red-600 rounded-xl overflow-hidden aspect-square hover:shadow-md transition-all">
+              <img src="/images/rong_nho_tuoi_nguyen_chum.jpg" class="w-full h-full object-cover" alt="Chùm rong tươi" title="Chùm tươi nguyên nhánh" />
             </button>
-            <button onclick="changeImage('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded overflow-hidden aspect-square">
-              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Thumb 2" />
+            <button type="button" onclick="changeImage('/images/rong_nho_uop_da_sot_me.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded-xl overflow-hidden aspect-square hover:shadow-md transition-all">
+              <img src="/images/rong_nho_uop_da_sot_me.jpg" class="w-full h-full object-cover" alt="Rong ướp đá kèm sốt" title="Đĩa rong ướp đá sốt mè" />
             </button>
-            <button onclick="changeImage('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded overflow-hidden aspect-square">
-              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Thumb 3" />
+            <button type="button" onclick="changeImage('/images/rong_nho_salad_eatclean.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded-xl overflow-hidden aspect-square hover:shadow-md transition-all">
+              <img src="/images/rong_nho_salad_eatclean.jpg" class="w-full h-full object-cover" alt="Salad Eat Clean ngũ sắc" title="Salad Eat Clean ngũ sắc" />
             </button>
-            <button onclick="changeImage('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded overflow-hidden aspect-square">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Thumb 4" />
+            <button type="button" onclick="changeImage('/images/rong_nho_cham_sot_me_rang.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded-xl overflow-hidden aspect-square hover:shadow-md transition-all">
+              <img src="/images/rong_nho_cham_sot_me_rang.jpg" class="w-full h-full object-cover" alt="Chấm sốt mè giòn rụm" title="Chấm sốt mè rang béo ngậy" />
+            </button>
+            <button type="button" onclick="changeImage('/images/rong_nho_vung_nuoi_khanh_hoa.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-emerald-600 rounded-xl overflow-hidden aspect-square hover:shadow-md transition-all">
+              <img src="/images/rong_nho_vung_nuoi_khanh_hoa.jpg" class="w-full h-full object-cover" alt="Vùng nuôi Khánh Hòa" title="Thu hoạch biển sạch Khánh Hòa" />
             </button>
           </div>
         </div>
@@ -200,10 +206,10 @@
             <!-- TIÊU ĐỀ BÁN HÀNG PHƯƠNG ÁN 1 -->
             <div class="my-4 p-3.5 bg-emerald-50 border-l-4 border-emerald-600 rounded-r-lg">
               <div class="text-lg sm:text-xl font-black text-emerald-950 leading-snug">
-                "Giòn Tan Không Tanh 100% – Bao No Sốt Mè Rang!"
+                "Ngâm 3 Phút – Nở Gấp 3 – Giòn Tan Tươi Mát!"
               </div>
               <p class="text-xs text-emerald-800 mt-1 font-medium">
-                ✨ Tặng dư 2 chai sốt béo ngậy • Thiệp 3 bước ngâm đá • Con không ăn hoặc mẹ thấy tanh hoàn tiền 100%.
+                ✨ Không tanh nhớt • 100% tự nhiên chuẩn biển sạch • Bé mê tít, mẹ giữ dáng thon.
               </p>
             </div>
 
@@ -245,7 +251,7 @@
               </a>
 
               <div class="text-center text-xs text-gray-500 pt-1">
-                Gọi <a href="tel:0902515699" class="font-bold text-red-600 hover:underline">0902 515 699</a> để được hỗ trợ nhanh
+                Gọi <a href="tel:0933951409" class="font-bold text-red-600 hover:underline">0933 951 409</a> để được hỗ trợ nhanh
               </div>
             </div>
           </div>
@@ -272,16 +278,6 @@
               <div>
                 <div class="font-bold text-gray-900">Giao hàng hỏa tốc</div>
                 <div class="text-gray-500 text-[11px] mt-0.5">Nội thành nhận hàng trong 1-2 giờ. Tỉnh xa nhận sau 1-2 ngày.</div>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3 pb-3 border-b border-gray-100">
-              <div class="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0 text-base font-black">
-                💯
-              </div>
-              <div>
-                <div class="font-bold text-red-600">Cam kết không tanh 100%</div>
-                <div class="text-gray-500 text-[11px] mt-0.5">Làm đúng mẹo ngâm đá mà bé chê tanh, hoàn tiền 100%.</div>
               </div>
             </div>
 
@@ -517,47 +513,88 @@
     </div>
   </section>
 
+  
+      <!-- BANNER ẢNH THẬT EAT CLEAN & VÙNG BIỂN KHÁNH HÒA -->
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden shadow-lg group border border-gray-200">
+          <img src="/images/rong_nho_salad_eatclean.jpg" alt="Đĩa salad rong nho Eat Clean" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+            <span class="bg-emerald-600 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider w-fit mb-1.5">Eat Clean & Healthy</span>
+            <h4 class="font-black text-base sm:text-lg">Salad Rong Nho Ngũ Sắc Tươi Mát</h4>
+            <p class="text-xs text-gray-200 mt-1">Kết hợp cùng cà chua, dưa leo, oliu tạo nên bữa ăn thanh lọc cơ thể, giữ dáng cực chuẩn.</p>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden shadow-lg group border border-gray-200">
+          <img src="/images/rong_nho_vung_nuoi_khanh_hoa.jpg" alt="Vùng nuôi trồng rong nho Khánh Hòa" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+            <span class="bg-blue-600 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider w-fit mb-1.5">Nguồn Gốc Tự Nhiên</span>
+            <h4 class="font-black text-base sm:text-lg">Nuôi Trồng Tại Vùng Biển Khánh Hòa</h4>
+            <p class="text-xs text-gray-200 mt-1">Nguồn nước biển tinh khiết giúp từng hạt rong nở to đều, giòn rụm và giàu khoáng chất.</p>
+          </div>
+        </div>
+      </div>
+
+
   <!-- PHẦN 5: HƯỚNG DẪN 3 BƯỚC ĂN NGAY -->
-  <section id="huong-dan" class="py-12 bg-white">
+  <section id="huong-dan" class="py-14 bg-white border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="text-emerald-700 font-black text-xs uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full">Cách dùng cực dễ</span>
+        <span class="text-emerald-700 font-black text-xs uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full">Cách dùng siêu nhanh</span>
         <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-2">
-          3 BƯỚC ĐƠN GIẢN CÓ NGAY ĐĨA RONG GIÒN RỤM
+          3 BƯỚC ĐƠN GIẢN CÓ NGAY ĐĨA RONG GIÒN RỤM TÍ TÁCH
         </h2>
+        <p class="text-xs sm:text-sm text-gray-500 mt-2">Chỉ mất 5 phút chuẩn bị để cả gia đình có món ăn tươi mát chuẩn nhà hàng Nhật.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         
-        <div class="text-center p-6 rounded-lg border border-gray-200 bg-gray-50">
-          <div class="w-12 h-12 bg-[#0b6e3f] text-white font-black text-xl rounded-full flex items-center justify-center mx-auto mb-4 shadow">
-            1
+        <!-- Bước 1 -->
+        <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl border-2 border-gray-100 overflow-hidden shadow-sm hover:shadow-lg transition-all text-center group">
+          <div class="aspect-video w-full overflow-hidden bg-gray-100">
+            <img src="/images/rong_nho_tuoi_nguyen_chum.jpg" alt="Bước 1: Ngâm nở" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           </div>
-          <h3 class="font-bold text-gray-900 text-base mb-2">Ngâm Nước Sạch 3-5 Phút</h3>
-          <p class="text-xs text-gray-600">
-            Bóc gói rong nho tách nước cho vào tô nước sạch. Rong sẽ từ từ hút nước và nở bung gấp 3 lần.
-          </p>
+          <div class="p-5">
+            <div class="w-8 h-8 bg-[#0b6e3f] text-white font-black text-sm rounded-full flex items-center justify-center mx-auto -mt-9 relative z-10 shadow border-2 border-white mb-2">
+              1
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-1.5">Ngâm Nước Sạch 3-5 Phút</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Bóc gói rong nho tách nước cho vào tô nước sạch. Rong tự động ngậm nước và nở bung gấp 3 lần xanh mướt.
+            </p>
+          </div>
         </div>
 
-        <div class="text-center p-6 rounded-lg border border-gray-200 bg-gray-50">
-          <div class="w-12 h-12 bg-[#0b6e3f] text-white font-black text-xl rounded-full flex items-center justify-center mx-auto mb-4 shadow">
-            2
+        <!-- Bước 2 -->
+        <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl border-2 border-gray-100 overflow-hidden shadow-sm hover:shadow-lg transition-all text-center group">
+          <div class="aspect-video w-full overflow-hidden bg-gray-100">
+            <img src="/images/rong_nho_uop_da_sot_me.jpg" alt="Bước 2: Ướp đá lạnh" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           </div>
-          <h3 class="font-bold text-gray-900 text-base mb-2">Ướp Nước Đá 3 Phút</h3>
-          <p class="text-xs text-gray-600">
-            Vớt rong ra, cho vào tô nước đá lạnh để rong trở nên giòn sần sật, the mát và hết vị mặn tự nhiên.
-          </p>
+          <div class="p-5">
+            <div class="w-8 h-8 bg-[#0b6e3f] text-white font-black text-sm rounded-full flex items-center justify-center mx-auto -mt-9 relative z-10 shadow border-2 border-white mb-2">
+              2
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-1.5">Ướp Đá Lạnh 3 Phút</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Tráng qua nước lọc rồi đặt rong lên đĩa đá viên lạnh. Sốc nhiệt giúp rong giòn tan sần sật và hoàn toàn hết tanh.
+            </p>
+          </div>
         </div>
 
-        <div class="text-center p-6 rounded-lg border border-gray-200 bg-gray-50">
-          <div class="w-12 h-12 bg-[#0b6e3f] text-white font-black text-xl rounded-full flex items-center justify-center mx-auto mb-4 shadow">
-            3
+        <!-- Bước 3 -->
+        <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl border-2 border-gray-100 overflow-hidden shadow-sm hover:shadow-lg transition-all text-center group">
+          <div class="aspect-video w-full overflow-hidden bg-gray-100">
+            <img src="/images/rong_nho_cham_sot_me_rang.jpg" alt="Bước 3: Chấm sốt mè" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           </div>
-          <h3 class="font-bold text-gray-900 text-base mb-2">Chấm Sốt & Thưởng Thức</h3>
-          <p class="text-xs text-gray-600">
-            Chấm kèm sốt mè rang béo ngậy (tặng kèm), mù tạt hoặc tương ớt và thưởng thức ngay khi còn lạnh.
-          </p>
+          <div class="p-5">
+            <div class="w-8 h-8 bg-[#0b6e3f] text-white font-black text-sm rounded-full flex items-center justify-center mx-auto -mt-9 relative z-10 shadow border-2 border-white mb-2">
+              3
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-1.5">Chấm Sốt & Thưởng Thức</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Chấm kèm sốt mè rang béo ngậy tặng kèm hoặc làm salad. Hạt rong vỡ tí tách trong miệng đã miệng khó cưỡng!
+            </p>
+          </div>
         </div>
 
       </div>
@@ -954,7 +991,7 @@
               <span>📞 Số điện thoại nhận hàng</span>
               <span class="text-red-500 font-bold">*</span>
             </label>
-            <input required type="tel" id="order-phone" name="phone" placeholder="Ví dụ: 0902 515 699" class="w-full px-4 py-3 bg-gray-50/70 border border-gray-300 rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all shadow-xs" />
+            <input required type="tel" id="order-phone" name="phone" placeholder="Ví dụ: 0933 951 409" class="w-full px-4 py-3 bg-gray-50/70 border border-gray-300 rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all shadow-xs" />
           </div>
 
           <!-- Địa chỉ -->
@@ -1044,10 +1081,13 @@
           </div>
 
           <!-- Submit Button -->
-          <div class="pt-2">
+          <div class="pt-2 space-y-2.5">
             <button type="submit" id="order-submit-btn" class="btn-pulse w-full bg-[#0b6e3f] hover:bg-emerald-800 text-white font-black py-4 sm:py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all text-base sm:text-lg uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
               <span>👉 ĐẶT HÀNG NGAY - NHẬN ƯU ĐÃI HÔM NAY</span>
             </button>
+            <a href="/thanh-toan" class="w-full bg-gradient-to-r from-emerald-800 to-teal-800 hover:from-emerald-900 hover:to-teal-900 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center gap-2">
+              <span>💳 Quét Mã VietQR / Sepay Thanh Toán Tự Động (Nhận Đơn Ngay) ↗</span>
+            </a>
           </div>
 
           <!-- Cam kết uy tín -->
@@ -1114,7 +1154,7 @@
           <div class="text-white font-bold mb-2">THÔNG TIN LIÊN HỆ</div>
           <div class="space-y-1 text-[11px]">
             <p>📍 Trụ sở: Vùng nuôi trồng Khánh Hòa & Chi nhánh phân phối toàn quốc</p>
-            <p>📞 Hotline/Zalo: <a href="tel:0902515699" class="text-red-400 font-bold">0902 515 699</a></p>
+            <p>📞 Hotline/Zalo: <a href="tel:0933951409" class="text-red-400 font-bold">0933 951 409</a></p>
             <p>✉️ Email: lienhe@umibudojapan.vn</p>
           </div>
         </div>
@@ -1135,9 +1175,9 @@
 
   <!-- FLOATING HOTLINE BUTTONS (BÊN TRÁI DƯỚI CÙNG - GIỐNG ẢNH MOSHIMOSHI) -->
   <div class="fixed bottom-4 left-4 z-50 flex flex-col gap-2">
-    <a href="tel:0902515699" class="flex items-center gap-2 bg-[#8bc34a] hover:bg-emerald-600 text-gray-900 font-bold px-3 py-1.5 rounded-full shadow-lg border border-white text-xs transition-transform hover:scale-105">
+    <a href="tel:0933951409" class="flex items-center gap-2 bg-[#8bc34a] hover:bg-emerald-600 text-gray-900 font-bold px-3 py-1.5 rounded-full shadow-lg border border-white text-xs transition-transform hover:scale-105">
       <span class="w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs">📞</span>
-      <span>0902.515.699</span>
+      <span>0933.951.409</span>
       <span class="bg-red-600 text-white text-[9px] px-1 rounded font-normal">Hotline 1</span>
     </a>
     <a href="tel:0909245123" class="flex items-center gap-2 bg-[#8bc34a] hover:bg-emerald-600 text-gray-900 font-bold px-3 py-1.5 rounded-full shadow-lg border border-white text-xs transition-transform hover:scale-105">
@@ -1149,7 +1189,7 @@
 
   <!-- FLOATING ZALO / MESSENGER (BÊN PHẢI DƯỚI CÙNG - GIỐNG ẢNH MOSHIMOSHI) -->
   <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
-    <a href="https://zalo.me/0902515699" target="_blank" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-xl border-2 border-white transition-transform hover:scale-110" title="Chat Zalo">
+    <a href="https://zalo.me/0933951409" target="_blank" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-xl border-2 border-white transition-transform hover:scale-110" title="Chat Zalo">
       <span class="font-black text-xs">Zalo</span>
     </a>
     <a href="#order-form" class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl border-2 border-white transition-transform hover:scale-110" title="Đặt hàng">
@@ -1305,9 +1345,6 @@
       }, 1000);
     }
   </script>
-
-  <!-- 💚 UMIBUDO CHATBOT SCRIPT -->
-  <script src="chatbot.js"></script>
 
 </body>
 </html>
