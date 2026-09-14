@@ -1,0 +1,5 @@
+# CẤU HÌNH DỊCH VỤ RESEND EMAIL MARKETING
+# Bạn có thể điền mã API Key lấy từ https://resend.com/api-keys vào dòng dưới:
+RESEND_API_KEY=re_123456789_abcdefgh
+RESEND_FROM_EMAIL=hi@rongnhonhatrang.vn
+RESEND_FROM_NAME=Phương Trần - Rong Nho Nha Trang
