@@ -1,5 +1,6 @@
 /thanh-toan               /thanh-toan/index.html            200
 /admin                    /admin/index.html                 200
+/agent                    /agent/index.html                 200
 /ebook                    /ebook/index.html                 200
 /api/orders/check-status  /.netlify/functions/orders        200
 /api/orders/confirm       /.netlify/functions/orders        200

@@ -36,3 +36,16 @@
 * **Hiện tượng:** Khách nhập thiếu số điện thoại hoặc email sai đuôi thì form vẫn gửi, dễ làm mất data khách.
 * **Nguyên nhân:** Form HTML5 chỉ kiểm tra thuộc tính `required` cơ bản.
 * **Cách khắc phục:** Đã bổ sung regex kiểm tra định dạng số điện thoại Việt Nam 10 chữ số (`^(0|\+84)[3|5|7|8|9][0-9]{8}$`) và regex kiểm tra định dạng email chuẩn trước khi gửi.
+
+### 🔴 Bug 4: Cấu hình ngân hàng VietQR hiển thị MB Bank thay vì ACB
+* **Hiện tượng:** Khách quét mã QR trên web hiện thông tin ngân hàng MB Bank, không đúng số tài khoản mong muốn.
+* **Nguyên nhân:** Cấu hình mặc định trong code ban đầu đặt mã MB Bank.
+* **Cách khắc phục:** Đã cập nhật lại toàn bộ hệ thống API (`/api/config`), giao diện thanh toán và Admin Panel sang **ACB (Ngân hàng TMCP Á Châu)**, STK: **`876997`**, Chủ tài khoản: **`TRAN THI PHUONG`**.
+
+### 🔴 Bug 5: Màn hình cảm ơn chưa hiện thông báo gửi email & video chưa show hộp thư Gmail
+* **Hiện tượng:** Khách thanh toán thành công thấy màn hình cảm ơn nhưng chưa thấy hiển thị email người nhận; video chưa quay thao tác mở hộp thư Gmail kiểm tra email thực tế.
+* **Nguyên nhân:** Giao diện checkout chưa có thẻ thông báo email; kịch bản quay video trước đó dùng modal tóm tắt thay vì chuyển qua tab hộp thư.
+* **Cách khắc phục:** 
+  1. Cập nhật `thanh-toan.html`: Bổ sung khối thông báo *"Email Xác Nhận Đơn Hàng Đã Gửi Tự Động"* kèm email nhận hóa đơn; tự động kích hoạt API Resend gửi email xác nhận.
+  2. Cập nhật video kiểm thử: Quay rõ nét thao tác chuyển sang hộp thư Gmail nhận cả **3 Email Marketing chuỗi** (mở xem chi tiết Voucher 40%, Ebook) và **Email Xác nhận đơn hàng #RN1082** gửi từ chính domain riêng `hi@rongnhonhatrang.vn`.
+

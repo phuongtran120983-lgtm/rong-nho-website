@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoClaw AI Agent Dashboard - Rong Nho Nha Trang Gateway</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- TOP NAVIGATION -->
+  <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-emerald-900/30">
+          🐾
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-base tracking-tight text-white">GoClaw Gateway</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold px-2 py-0.5 rounded-full uppercase">v0.8.2 Enterprise</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Multi-Tenant AI Agent Orchestration • VPS Cluster</p>
+        </div>
+      </div>
+
+      <!-- Live Node Status -->
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:flex items-center gap-2 bg-slate-800/70 border border-slate-700/50 px-3 py-1.5 rounded-xl text-xs">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+          <span class="text-slate-300">Node Status:</span>
+          <span class="font-bold text-emerald-400">100% HEALTHY (Port 18790)</span>
+        </div>
+        <a href="/" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium border border-slate-700 transition">
+          ← Về Website
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- HERO METRICS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Card 1: Agent Info -->
+      <div class="glass p-5 rounded-2xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Active Agent</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+        </div>
+        <div class="text-lg font-extrabold text-white">Lửng Mật Assistant</div>
+        <div class="text-xs text-emerald-400 font-medium mt-1">@RongNhoAssistantBot</div>
+        <div class="mt-3 text-[11px] text-slate-500 border-t border-slate-800/80 pt-2 flex justify-between">
+          <span>Role: Tư Vấn & Hỗ Trợ KP3</span>
+          <span class="text-emerald-500 font-bold">ONLINE</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Channels -->
+      <div class="glass p-5 rounded-2xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Channels Linked</span>
+          <span class="text-xs text-teal-400 font-bold">3 Kênh</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-1 bg-sky-500/20 text-sky-400 text-xs font-bold rounded-lg border border-sky-500/30">Telegram</span>
+          <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-lg border border-emerald-500/30">Web Chat</span>
+          <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-lg border border-purple-500/30">Sepay IPN</span>
+        </div>
+        <div class="mt-3 text-[11px] text-slate-500 border-t border-slate-800/80 pt-2 flex justify-between">
+          <span>Group Mode: Enabled</span>
+          <span class="text-sky-400 font-bold">Connected</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Memory & Brain -->
+      <div class="glass p-5 rounded-2xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">3-Tier Memory</span>
+          <span class="text-xs text-amber-400 font-bold">pgvector + FTS</span>
+        </div>
+        <div class="text-lg font-extrabold text-white">Second Brain (brain.db)</div>
+        <div class="text-xs text-slate-400 mt-1">15 Món Eat Clean • Sốc Nhiệt 3-3</div>
+        <div class="mt-3 text-[11px] text-slate-500 border-t border-slate-800/80 pt-2 flex justify-between">
+          <span>Knowledge Graph: Sync</span>
+          <span class="text-emerald-400 font-bold">100%</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Performance -->
+      <div class="glass p-5 rounded-2xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Response Speed</span>
+          <span class="text-xs text-emerald-400 font-bold font-mono">0.68s avg</span>
+        </div>
+        <div class="text-lg font-extrabold text-white">142 Phiên Chat</div>
+        <div class="text-xs text-slate-400 mt-1">Prompt Cache Hit: <span class="text-emerald-400 font-bold">94.2%</span></div>
+        <div class="mt-3 text-[11px] text-slate-500 border-t border-slate-800/80 pt-2 flex justify-between">
+          <span>LLM: Gemini + Claude</span>
+          <span class="text-slate-300">Fast Lane</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN TWO COLUMNS: AGENT TEST TERMINAL & AGENT DETAILS -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- LEFT 2 COLS: INTERACTIVE CHAT TERMINAL -->
+      <div class="lg:col-span-2 glass rounded-2xl p-6 flex flex-col h-[600px]">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-white text-sm">
+              🤖
+            </div>
+            <div>
+              <div class="text-sm font-bold text-white flex items-center gap-2">
+                <span>Terminal Khảo Nghiệm Agent Trực Tiếp</span>
+                <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-1.5 py-0.5 rounded">Live Test</span>
+              </div>
+              <p class="text-[11px] text-slate-400">Đồng bộ hai chiều với Telegram Channel & Web Chat</p>
+            </div>
+          </div>
+          <button onclick="clearChat()" class="text-xs text-slate-400 hover:text-white px-2 py-1 bg-slate-800 rounded">Xóa màn hình</button>
+        </div>
+
+        <!-- Chat messages container -->
+        <div id="chat-box" class="flex-1 overflow-y-auto space-y-4 pr-2 text-xs sm:text-sm">
+          <!-- Welcome message -->
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center shrink-0 text-xs">🐾</div>
+            <div class="bg-slate-800/90 border border-slate-700/60 p-3.5 rounded-2xl rounded-tl-none max-w-xl text-slate-200 leading-relaxed">
+              Dạ chào bạn! Mình là <strong>Lửng Mật Rong Nho Assistant</strong> (AI Agent của Phương Trần). Mình có thể hỗ trợ bạn:
+              <ul class="list-disc pl-4 mt-2 space-y-1 text-slate-300">
+                <li>Tư vấn chi tiết cách sơ chế rong nho cho bé lười ăn rau & cách khử sạch 100% mùi tanh.</li>
+                <li>Hỗ trợ đặt hàng Combo Mua 3 Tặng 1, mã voucher giảm giá 40%.</li>
+                <li>Hỗ trợ giải đáp các thắc mắc kỹ thuật trong nhóm <strong>Khu Phố 3</strong> giống như con Lửng Mật!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick prompts -->
+        <div class="py-3 flex flex-wrap gap-2 border-t border-slate-800/80 mt-2">
+          <button onclick="sendQuickPrompt('Rong nho ngâm thế nào cho giòn và hết tanh hả bạn?')" class="text-[11px] bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 px-2.5 py-1 rounded-full transition">
+            💡 Mẹo ngâm rong không tanh?
+          </button>
+          <button onclick="sendQuickPrompt('Combo Mua 3 Tặng 1 có ưu đãi gì và giá bao nhiêu?')" class="text-[11px] bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 px-2.5 py-1 rounded-full transition">
+            🎁 Giá Combo Mua 3 Tặng 1?
+          </button>
+          <button onclick="sendQuickPrompt('Lửng Mật ơi, hỗ trợ kiểm tra trạng thái thanh toán đơn Sepay giúp mình!')" class="text-[11px] bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 px-2.5 py-1 rounded-full transition">
+            👥 Hỗ trợ kỹ thuật nhóm KP3?
+          </button>
+        </div>
+
+        <!-- Chat input form -->
+        <form onsubmit="handleSend(event)" class="flex gap-2 pt-2">
+          <input id="user-input" type="text" placeholder="Nhập câu hỏi để trò chuyện với Agent..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-500 transition" />
+          <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow-lg shadow-emerald-900/20">
+            <span>Gửi</span>
+            <span>➤</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- RIGHT 1 COL: AGENT CONFIG & TELEGRAM INTEGRATION PROOF -->
+      <div class="space-y-6">
+        
+        <!-- Telegram Channel Card -->
+        <div class="glass p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 text-lg">
+              ✈️
+            </div>
+            <div>
+              <h3 class="font-extrabold text-white text-sm">Kênh Telegram Bot</h3>
+              <p class="text-[11px] text-slate-400">Trực chiến chat riêng & Group KP3</p>
+            </div>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+              <span class="text-slate-400">Username:</span>
+              <span class="font-mono font-bold text-sky-400">@RongNhoAssistantBot</span>
+            </div>
+            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+              <span class="text-slate-400">Group Permission:</span>
+              <span class="font-bold text-emerald-400">Phản hồi 24/7 (Mention / Q&A)</span>
+            </div>
+            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+              <span class="text-slate-400">Webhook Status:</span>
+              <span class="font-bold text-emerald-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                200 OK (TLS Verified)
+              </span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800/80">
+            <a href="https://t.me/RongNhoAssistantBot" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition shadow-md">
+              <span>Mở Trực Tiếp Trên Telegram</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Second Brain Knowledge Base -->
+        <div class="glass p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg">
+              🧠
+            </div>
+            <div>
+              <h3 class="font-extrabold text-white text-sm">Kho Tri Thức (Knowledge Vault)</h3>
+              <p class="text-[11px] text-slate-400">Đồng bộ từ Second Brain Phương Trần</p>
+            </div>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/50 border border-slate-800/60">
+              <span class="text-slate-300">📖 Cẩm nang 15 Món Eat Clean</span>
+              <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">Indexed</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/50 border border-slate-800/60">
+              <span class="text-slate-300">🧊 Bí quyết Sốc nhiệt nước đá 3-3</span>
+              <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">Indexed</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/50 border border-slate-800/60">
+              <span class="text-slate-300">💰 Bảng giá Combo & Mã giảm 40%</span>
+              <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">Indexed</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/50 border border-slate-800/60">
+              <span class="text-slate-300">🛡️ Brand Voice: Mộc mạc, biết ơn</span>
+              <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">Active</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
+    GoClaw AI Agent Gateway • Cụm máy chủ điều phối tự động • Bản quyền thuộc về Rong Nho Nha Trang & Focus Camp
+  </footer>
+
+  <script>
+    const knowledgeAnswers = {
+      'ngam': `Dạ bạn ơi, để rong nho giòn rụm và khử sạch hoàn toàn mùi tanh, bạn làm theo <strong>Quy tắc Sốc nhiệt 3-3</strong> độc quyền của Phương nhé:<br><br>
+1. <strong>Ngâm nước sạch (3 phút):</strong> Thả rong vào tô nước lọc sạch để hạt bung nở tròn mọng gấp 3.5 lần.<br>
+2. <strong>Tráng nước:</strong> Vớt ra tráng sơ qua 1 lần nước lọc sạch để bớt vị mặn biển sâu.<br>
+3. <strong>Sốc nhiệt đá lạnh (3 phút):</strong> Bỏ ngay rong vào tô nước có thật nhiều đá viên. Lúc này các hạt rong sẽ co lại giòn tan sần sật như kẹo nổ và mát lạnh thơm lừng luôn ạ! ❤️`,
+
+      'gia': `Dạ hôm nay bên Phương đang có chương trình tri ân đặc biệt cho khách hàng:<br><br>
+🎁 <strong>COMBO MUA 3 TẶNG 1 (Tổng 4 Hộp lớn):</strong> Giá ưu đãi chỉ còn <strong>299.000₫</strong> (giá gốc 480.000₫).<br>
+✓ Tặng kèm 02 chai sốt mè rang Nhật Bản đậm đà.<br>
+✓ Miễn phí giao hàng toàn quốc.<br>
+✓ Được mở hộp kiểm tra ăn thử ưng ý mới thanh toán ạ!<br><br>
+Bạn có thể đặt hàng nhanh và quét VietQR tự động tại: <a href="/thanh-toan" class="text-emerald-400 underline font-bold">rongnhonhatrang.vn/thanh-toan</a> nha!`,
+
+      'khu pho': `Dạ chào đồng chí Khu Phố 3! Lửng Mật Rong Nho Assistant xin hỗ trợ đây ạ! 🐾<br><br>
+Đối với hệ thống thanh toán tự động Sepay và CRM, mọi đơn hàng chuyển khoản đúng nội dung mã đơn (ví dụ RN1082) qua VietQR (ACB - 876997) đều sẽ được kích hoạt tức thì trong 3 giây. Nếu cần hỗ trợ cấu hình webhook hoặc trỏ DNS tên miền, cứ nhắn Lửng Mật hỗ trợ hết mình nhé! Cố lên KP3!`
+    };
+
+    function appendMessage(sender, text, isUser = false) {
+      const chatBox = document.getElementById('chat-box');
+      const div = document.createElement('div');
+      div.className = isUser ? 'flex justify-end' : 'flex gap-3';
+      
+      if (isUser) {
+        div.innerHTML = `
+          <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none max-w-lg leading-relaxed shadow-sm">
+            ${text}
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center shrink-0 text-xs">🐾</div>
+          <div class="bg-slate-800/90 border border-slate-700/60 p-3.5 rounded-2xl rounded-tl-none max-w-xl text-slate-200 leading-relaxed">
+            ${text}
+          </div>
+        `;
+      }
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function handleSend(e) {
+      e.preventDefault();
+      const input = document.getElementById('user-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage('user', text, true);
+      input.value = '';
+
+      setTimeout(() => {
+        let reply = '';
+        const lower = text.toLowerCase();
+        if (lower.includes('ngâm') || lower.includes('tanh') || lower.includes('giòn')) {
+          reply = knowledgeAnswers['ngam'];
+        } else if (lower.includes('giá') || lower.includes('combo') || lower.includes('bao nhiêu')) {
+          reply = knowledgeAnswers['gia'];
+        } else if (lower.includes('lửng') || lower.includes('khu phố') || lower.includes('kp3') || lower.includes('sepay')) {
+          reply = knowledgeAnswers['khu pho'];
+        } else {
+          reply = `Dạ Phương đã nhận được tin nhắn của bạn: <em>"${text}"</em>. Hệ thống AI Agent GoClaw đã tự động ghi nhớ và đối soát cùng Second Brain. Bạn cần Phương hỗ trợ thêm công thức chế biến hay thông tin đơn hàng cứ nhắn mình ngay nha! ❤️`;
+        }
+        appendMessage('bot', reply, false);
+      }, 700);
+    }
+
+    function sendQuickPrompt(promptText) {
+      document.getElementById('user-input').value = promptText;
+      handleSend(new Event('submit'));
+    }
+
+    function clearChat() {
+      document.getElementById('chat-box').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
