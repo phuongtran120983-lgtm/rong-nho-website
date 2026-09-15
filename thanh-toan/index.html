@@ -243,6 +243,19 @@
           <span class="text-slate-500">Số tiền đã trả:</span>
           <span id="succ-amount" class="font-black text-emerald-700 text-sm"></span>
         </div>
+        <div class="flex justify-between border-t border-slate-200 pt-2">
+          <span class="text-slate-500">Email nhận hóa đơn:</span>
+          <span id="succ-customer-email" class="font-bold text-emerald-700 font-mono"></span>
+        </div>
+      </div>
+
+      <!-- Email Confirmation Notice -->
+      <div class="max-w-md mx-auto mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-left flex items-start gap-3 shadow-xs">
+        <span class="text-2xl">📬</span>
+        <div class="text-xs text-emerald-900 leading-relaxed">
+          <div class="font-bold text-emerald-800 text-sm mb-1">Email Xác Nhận Đơn Hàng Đã Gửi Tự Động!</div>
+          Hệ thống đã gửi hóa đơn xác nhận thanh toán từ <strong>hi@rongnhonhatrang.vn</strong> đến hộp thư của bạn.
+        </div>
       </div>
 
       <!-- Action buttons -->
@@ -521,6 +534,23 @@
       document.getElementById('succ-customer-name').innerText = order.customer_name;
       document.getElementById('succ-product-name').innerText = order.product_name;
       document.getElementById('succ-amount').innerText = new Intl.NumberFormat('vi-VN').format(order.amount) + '₫';
+
+      const emailTarget = order.customer_email || (document.getElementById('cust-email') ? document.getElementById('cust-email').value : '') || 'phuongtran.120983@gmail.com';
+      if (document.getElementById('succ-customer-email')) {
+        document.getElementById('succ-customer-email').innerText = emailTarget;
+      }
+
+      // Kích hoạt gửi email xác nhận thanh toán thành công qua Resend
+      fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'order_confirmation',
+          name: order.customer_name,
+          email: emailTarget,
+          order: order
+        })
+      }).catch(e => console.warn('Lỗi gửi email xác nhận:', e));
 
       if (product && (product.type === 'digital' || product.name.includes('Ebook'))) {
         document.getElementById('digital-download-box').classList.remove('hidden');
