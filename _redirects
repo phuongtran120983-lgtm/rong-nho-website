@@ -3,7 +3,9 @@
 /agent                    /agent/index.html                 200
 /ebook                    /ebook/index.html                 200
 /ke-hoach                 /ke-hoach/index.html              200
+/ke-hoach/                /ke-hoach/index.html              200
 /san-pham-so              /san-pham-so/index.html           200
+/san-pham-so/             /san-pham-so/index.html           200
 /api/orders/check-status  /.netlify/functions/orders        200
 /api/orders/confirm       /.netlify/functions/orders        200
 /api/orders/*             /.netlify/functions/orders        200
