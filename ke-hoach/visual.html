@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sơ Đồ Phễu Bán Hàng Trực Quan - Rong Nho Nha Trang</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 30px 20px;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  h1 {
+    font-size: 28px;
+    color: #38bdf8;
+    margin-bottom: 8px;
+  }
+  p.desc {
+    color: #94a3b8;
+    font-size: 15px;
+  }
+  .funnel-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+  }
+  .stage-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .stage-card:hover {
+    transform: translateY(-2px);
+    border-color: #38bdf8;
+  }
+  .stage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+  }
+  .stage-title {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .badge-traffic { background: #0284c7; color: #fff; }
+  .badge-lead { background: #059669; color: #fff; }
+  .badge-core { background: #d97706; color: #fff; }
+  .badge-retention { background: #7c3aed; color: #fff; }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+  }
+  .item-box {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .item-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #e2e8f0;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 12.5px;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+  .metric-tag {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11.5px;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .connector {
+    text-align: center;
+    font-size: 24px;
+    color: #38bdf8;
+    margin: -10px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>KIẾN TRÚC PHỄU BÁN HÀNG TỰ ĐỘNG (INTERACTIVE FUNNEL)</h1>
+    <p class="desc">Thương hiệu Rong Nho Tách Nước Nha Trang • Mô hình Direct-to-Consumer (D2C) AI-First</p>
+  </header>
+
+  <div class="funnel-pipeline">
+    <!-- TẦNG 1 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span>🚀 TẦNG 1: NGUỒN LƯU LƯỢNG (TRAFFIC GENERATION)</span>
+        </div>
+        <span class="badge badge-traffic">Target: 30.000 Lượt tiếp cận / Tuần</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-box">
+          <div class="item-name">📱 Facebook & TikTok Ads (Paid Traffic)</div>
+          <div class="item-meta">Bộ 3 góc Ads Hook-Story-Offer: Nỗi đau mẹ bỉm, Ăn kiêng giữ dáng, Bữa tiệc lẩu cuối tuần.</div>
+          <span class="metric-tag">Target CTR: 3.5% • CPC: ~1.200đ</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">🎬 Video Ngắn Viral ASMR (Organic Traffic)</div>
+          <div class="item-meta">Video AI 20s cắn rong nho giòn tanh tách, chuyển động giọt nước Cam Ranh.</div>
+          <span class="metric-tag">Mục tiêu: 100k views/tháng</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">🤖 goClaw Fanpage Auto-Posting (Retention)</div>
+          <div class="item-meta">Hệ thống AI tự động đăng 3 bài mỗi ngày (8:30, 11:30, 20:00) chuẩn Brand Voice.</div>
+          <span class="metric-tag">100% Tự động 24/7</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">▼</div>
+
+    <!-- TẦNG 2 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span>🎯 TẦNG 2: THU THẬP KHÁCH HÀNG & MỒI CÂU (LEAD MAGNET & TRIPWIRE)</span>
+        </div>
+        <span class="badge badge-lead">Tỷ lệ Opt-in: 15 - 20%</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-box">
+          <div class="item-name">🎁 HVCO Lead Magnet (0đ)</div>
+          <div class="item-meta">Mini Ebook "7 Mẹo Tập Bé Ăn Rau Tự Nguyện" thu thập Tên + SĐT + Email.</div>
+          <span class="metric-tag">Chi phí thu nạp: 0đ</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">📖 Sản Phẩm Số Trải Nghiệm (2.000đ Live)</div>
+          <div class="item-meta">"Cẩm Nang Thực Dưỡng Xanh 21 Công Thức" thanh toán VietQR tự động khớp đơn tức thì.</div>
+          <span class="metric-tag">Tạo thói quen thanh toán</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">⚡ Fast Checkout VietQR ACB</div>
+          <div class="item-meta">Cổng VietQR ACB 876997 - Không cần đăng ký tài khoản, quét mã thanh toán 3 giây.</div>
+          <span class="metric-tag">Khớp tự động qua Sepay</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">▼</div>
+
+    <!-- TẦNG 3 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span>💰 TẦNG 3: LỜI CHÀO HÀNG CHỦ LỰC (CORE OFFER TRANSVERSION)</span>
+        </div>
+        <span class="badge badge-core">AOV: 350.000đ • Margin: 38.2%</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-box">
+          <div class="item-name">📦 Combo Đại Tiệc (Mua 3 Tặng 1 Hộp)</div>
+          <div class="item-meta">4 Hộp Rong Nho Tách Nước Thượng Hạng (nở ra 3.5kg rong tươi) giá 350.000đ (tiết kiệm 130k).</div>
+          <span class="metric-tag">Core Hero Offer</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">🎁 Quà tặng Kích nổ chuyển đổi (Stack)</div>
+          <div class="item-meta">Tặng 4 sốt mè rang Kewpie + Ebook bản quyền + Freeship toàn quốc.</div>
+          <span class="metric-tag">Tăng cảm nhận giá trị gấp 3</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">🛡️ Bảo hành đảo ngược rủi ro 100%</div>
+          <div class="item-meta">Ăn không giòn, bị tanh hoặc không hài lòng ➔ Hoàn tiền 100% giữ nguyên hàng.</div>
+          <span class="metric-tag">Tỷ lệ hủy đơn: < 1.5%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">▼</div>
+
+    <!-- TẦNG 4 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span>🔄 TẦNG 4: CHĂM SÓC, BÁM ĐUỔI & MỞ RỘNG (SCALE & RETENTION)</span>
+        </div>
+        <span class="badge badge-retention">LTV: 980.000đ / Khách</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-box">
+          <div class="item-name">📧 Chuỗi 5 Email Closer (Resend API)</div>
+          <div class="item-meta">Tự động nuôi dưỡng khách hàng chưa mua và nhắc đơn bỏ quên giỏ hàng.</div>
+          <span class="metric-tag">Open rate: 42%</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">🤖 Trợ lý AI Lửng Mật Telegram / Zalo</div>
+          <div class="item-meta">Tự động báo đơn hàng cho chị Phương, giải đáp mẹo ngâm rong 24/7.</div>
+          <span class="metric-tag">Phản hồi < 5 giây</span>
+        </div>
+        <div class="item-box">
+          <div class="item-name">👑 Gói Hội Viên & Đại Lý Sỉ B2B</div>
+          <div class="item-meta">Thùng 10-20 hộp cung cấp cho nhà hàng, trường mầm non và chuỗi quán ăn Healthy.</div>
+          <span class="metric-tag">Doanh số định kỳ bền vững</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

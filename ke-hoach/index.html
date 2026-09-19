@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kế Hoạch Kinh Doanh & Full Funnel - Rong Nho Nha Trang</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0b1329;
+    color: #f1f5f9;
+    line-height: 1.6;
+    padding-bottom: 80px;
+  }
+  .hero-header {
+    background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+  }
+  .tag-live {
+    background: #10b981;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+  h1.main-title {
+    font-size: 36px;
+    color: #38bdf8;
+    margin-bottom: 12px;
+    font-weight: 800;
+  }
+  p.main-sub {
+    font-size: 18px;
+    color: #94a3b8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 1140px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  .section-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #38bdf8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+  .btn-view {
+    background: #0284c7;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-view:hover {
+    background: #0369a1;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media(max-width:768px) { .grid-2 { grid-template-columns: 1fr; } }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+  }
+  .mini-card {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .mini-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #f8fafc;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mini-desc {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+  }
+  .highlight-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  /* Modal preview */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .modal-content {
+    background: #0f172a;
+    border: 1px solid #38bdf8;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .modal-header {
+    padding: 16px 20px;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 13.5px;
+    white-space: pre-wrap;
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+  .close-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 24px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-header">
+  <span class="tag-live">PITCH DECK DEMO DAY • NGÀY 21</span>
+  <h1 class="main-title">KẾ HOẠCH KINH DOANH & FULL FUNNEL</h1>
+  <p class="main-sub">Thương hiệu: Rong Nho Tách Nước Nha Trang (rongnhonhatrang.vn)<br>Sáng lập & Điều hành: Trần Thị Phương • Vận hành 24/7 bởi Đội Ngũ Multi-Agent</p>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: EXECUTIVE SUMMARY & SẢN PHẨM SỐ LIVE -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>1. EXECUTIVE SUMMARY & SẢN PHẨM SỐ ĐÃ LIVE</span>
+      <a href="/san-pham-so" target="_blank" class="btn-view">🛒 Mở Trang Mua 2.000đ Live ➔</a>
+    </div>
+    <div class="grid-2">
+      <div>
+        <p style="margin-bottom:12px;"><strong>🎯 Tầm nhìn:</strong> Xây dựng thương hiệu Rong Nho Tách Nước chất lượng số 1 vịnh biển Cam Ranh - Nha Trang, ứng dụng công nghệ AI-First tự động hóa 90% quy trình từ sản xuất content, marketing, tư vấn bán hàng đến thanh toán VietQR.</p>
+        <p><strong>📖 Sản phẩm số (Digital Product):</strong> <em>Cẩm Nang Thực Dưỡng Xanh & 21 Công Thức Chế Biến Rong Nho Giữ Dáng - Trị Biếng Ăn</em> (Ebook PDF 274KB). Đã mở bán thật giá trải nghiệm 2.000đ trên web để kiểm thử luồng chuyển đổi tự động.</p>
+      </div>
+      <div class="mini-card" style="border-color:#10b981;">
+        <div class="mini-title">
+          <span>THÔNG SỐ CHÍNH (UNIT METRICS)</span>
+          <span class="highlight-badge">VERIFIED</span>
+        </div>
+        <div class="mini-desc">
+          • Giá bán Ebook trải nghiệm: <strong>2.000 VNĐ</strong> (VietQR Sepay)<br>
+          • Core Offer Combo 3+1: <strong>350.000 VNĐ</strong> (Freeship)<br>
+          • Tỷ lệ lợi nhuận ròng (Net Margin): <strong>38.2%</strong><br>
+          • Giá trị trọn đời khách hàng (LTV 90 ngày): <strong>980.000 VNĐ</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: FOUNDATION (AVATAR & BRAND VOICE & HERO MECHANISM) -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>2. NỀN TẢNG (CHẶNG 1: FOUNDATION)</span>
+      <span style="font-size:13px; color:#94a3b8;">Agents 01, 02, 03</span>
+    </div>
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>01-avatar.md</span>
+          <a href="01-avatar.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Chân dung Mẹ bỉm sữa Minh Anh (28-36 tuổi) con lười ăn rau & Nàng công sở Hương Giang thích Eat Clean giữ dáng.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>02-brand-voice.md</span>
+          <a href="02-brand-voice.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Bộ quy chuẩn giọng điệu mộc mạc, chân thành, vị biển khơi Cam Ranh, từ ngữ cấm kỵ và từ vựng đặc trưng.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>03-hero-mechanism.md</span>
+          <a href="03-hero-mechanism.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Cơ chế vượt trội: Công nghệ tách nước ly tâm Nhật Bản khóa 99% vi chất + Quy tắc "Sốc nhiệt 3-3" giòn tan không tanh.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MONEY & OFFER -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>3. MÔ HÌNH DOANH THU & OFFER (CHẶNG 2: MONEY & OFFER)</span>
+      <span style="font-size:13px; color:#94a3b8;">Agents 04, 05, 06</span>
+    </div>
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>04-money-model.md</span>
+          <a href="04-money-model.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Thang giá trị 5 tầng: Lead Magnet 0đ ➔ Tripwire 2k/99k ➔ Core Offer 350k ➔ Gói năm 1.2tr ➔ Sỉ B2B.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>05-offer-architect.md</span>
+          <a href="05-offer-architect.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Grand Slam Offer theo Alex Hormozi: Mua 3 Tặng 1 Hộp + 4 Sốt Mè Rang + Ebook + Freeship (Tổng trị giá 863k bán 350k).</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>06-hvco-lead-magnet.md</span>
+          <a href="06-hvco-lead-magnet.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">High Value Content Offer: Cẩm nang 7 mẹo tập bé ăn rau tự nguyện trong 3 ngày kéo phễu chuyển đổi cao.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: FULL FUNNEL ARCHITECTURE -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>4. KIẾN TRÚC PHỄU BÁN HÀNG (CHẶNG 3: FUNNEL)</span>
+      <a href="visual.html" target="_blank" class="btn-view">🗺️ Mở Sơ Đồ visual.html ➔</a>
+    </div>
+    <div class="grid-2">
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>07-funnel-blueprint.md</span>
+          <a href="07-funnel-blueprint.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Bản thiết kế dòng chảy khách hàng 4 tầng: Traffic ➔ Capture ➔ Core Offer ➔ Nurture & Scale qua hệ thống tự động.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>visual.html (Interactive Flow)</span>
+          <a href="visual.html" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Giao diện tương tác trực quan hiển thị đầy đủ các điểm chạm và tỷ lệ chuyển đổi từng tầng phễu.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: COPYWRITING & CONTENT ASSETS -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>5. BỘ MÁY COPYWRITING (CHẶNG 4: COPY)</span>
+      <span style="font-size:13px; color:#94a3b8;">Agents 08, 09, 10</span>
+    </div>
+    <div class="grid-2">
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>08-ad-copy.md (Bộ 3 Góc Ads)</span>
+          <a href="08-ad-copy.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">3 kịch bản quảng cáo Facebook/TikTok bám sát insight Mẹ bỉm, Giữ dáng và Đại tiệc gia đình.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>08-landing.html (Trang Bán Hàng)</span>
+          <a href="08-landing.html" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Landing Page chuyển đổi cao, tích hợp form đặt hàng và sinh mã VietQR ACB tự động.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>09-vsl-script.md (Video Bán Hàng)</span>
+          <a href="09-vsl-script.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Kịch bản VSL 3 phút âm thanh ASMR giòn rụm, đánh trúng tâm lý mẹ bỉm và phụ nữ giữ dáng.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>10-email-closer.md (Chuỗi 5 Email)</span>
+          <a href="10-email-closer.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Chuỗi 5 email tự động qua Resend: Chào mừng, Giáo dục, Giới thiệu Combo, Bằng chứng xã hội và Chốt deadline.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: SALES & FOLLOW-UP -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>6. CHỐT ĐƠN & CHĂM SÓC HẬU MÃI (CHẶNG 5: SALES)</span>
+      <span style="font-size:13px; color:#94a3b8;">Agents 11, 12</span>
+    </div>
+    <div class="grid-2">
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>11-follow-up.md</span>
+          <a href="11-follow-up.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Quy trình bám đuổi giỏ hàng bị bỏ quên trong 24h & kịch bản chăm sóc khách Ngày 1, Ngày 3, Ngày 25.</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>12-sales-script.md</span>
+          <a href="12-sales-script.md" target="_blank" class="btn-view" style="padding:4px 10px;">View</a>
+        </div>
+        <div class="mini-desc">Kịch bản Telesale & Inbox tư vấn 4 bước: Đồng cảm, giải quyết nỗi sợ tanh, bẻ gãy chê đắt và chốt combo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: ROADMAP 90 NGÀY & BẢN TỰ VẤN -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>7. ROADMAP 90 NGÀY & TỰ VẤN NỘI TÂI OPERATOR</span>
+      <a href="13-roadmap-tu-van.md" target="_blank" class="btn-view">📖 Xem 13-roadmap-tu-van.md ➔</a>
+    </div>
+    <div class="grid-2">
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>ROADMAP 3 THÁNG × 3 MILESTONES</span>
+          <span class="highlight-badge">90 DAYS</span>
+        </div>
+        <div class="mini-desc">
+          • <strong>Tháng 1:</strong> Hoàn thiện sản phẩm số, cỗ máy auto-post 3 bài/ngày, chinh phục 100 đơn combo đầu tiên.<br>
+          • <strong>Tháng 2:</strong> Scale Ads 3tr/ngày, tối ưu phễu chuyển đổi lên 12%, kích hoạt chuỗi email Resend.<br>
+          • <strong>Tháng 3:</strong> Ra mắt gói Hội viên định kỳ, xây mạng lưới 50 affiliate mẹ bỉm, phủ 20 nhà hàng B2B.
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">
+          <span>TỰ VẤN 3 ĐIỂM YẾU & KẾ HOẠCH HỌC</span>
+          <span class="highlight-badge">REFLECTION</span>
+        </div>
+        <div class="mini-desc">
+          1. <strong>Code & Server:</strong> AI gánh 95% viết code, mình tự học tư duy dòng chảy dữ liệu tại Focus Camp.<br>
+          2. <strong>Quay Video:</strong> AI dựng video ASMR, mình tự học quay clip ngắn chân thật 30s mỗi ngày.<br>
+          3. <strong>Quản Trị Tài Chính Ads:</strong> AI tổng hợp chỉ số, mình tự học Unit Economics để kiểm soát ROAS.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: CỖ MÁY MULTI-AGENT & AUTOMATION -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>8. CỖ MÁY VẬN HÀNH MULTI-AGENT TRÊN VPS GOCLAW</span>
+      <a href="http://103.97.124.183:18790" target="_blank" class="btn-view">🦡 goClaw Gateway ➔</a>
+    </div>
+    <div class="mini-desc" style="font-size:14px; color:#cbd5e1;">
+      Hệ thống vận hành thực tế tại <strong>http://103.97.124.183:18790</strong> với đội ngũ <strong>Rong Nho Growth Team</strong>:<br>
+      • 🦡 <strong>Lửng Mật Rong Nho (Lead):</strong> Điều phối chiến dịch, giám sát bảng Kanban, leo thang blocker.<br>
+      • ✍️ <strong>Rong Nho Copywriter:</strong> Sáng tạo bài viết và kịch bản chuẩn Brand Voice.<br>
+      • 🎨 <strong>Rong Nho Creative Designer:</strong> Thiết kế ấn phẩm 4K tỷ lệ 1:1 và 9:16.<br>
+      • 🎬 <strong>Rong Nho Video Producer:</strong> Dựng video ngắn viral bằng Higgsfield & âm thanh ASMR.<br>
+      • ⏰ <strong>Cron Job 3 bài/ngày:</strong> Tự động xuất bản lên Fanpage vào 08:30, 11:30 và 20:00.
+    </div>
+  </div>
+
+  <!-- SECTION 9: DEMO DAY PITCH ASSETS & LIVE LINKS -->
+  <div class="section-card" style="border-color:#38bdf8;">
+    <div class="section-title">
+      <span>9. TỔNG KẾT TÀI NGUYÊN DEMO DAY & LIÊN HỆ</span>
+      <span class="highlight-badge" style="background:#0284c7; color:#fff;">READY TO PITCH</span>
+    </div>
+    <div class="grid-3">
+      <div class="mini-card" style="text-align:center;">
+        <div style="font-size:32px; margin-bottom:10px;">🌐</div>
+        <div style="font-weight:700; margin-bottom:6px;">Website Chính Thức</div>
+        <a href="https://rongnhonhatrang.vn" target="_blank" style="color:#38bdf8; text-decoration:none; font-size:13px;">rongnhonhatrang.vn</a>
+      </div>
+      <div class="mini-card" style="text-align:center;">
+        <div style="font-size:32px; margin-bottom:10px;">💳</div>
+        <div style="font-weight:700; margin-bottom:6px;">Cổng Mua Ebook 2.000đ</div>
+        <a href="/san-pham-so" target="_blank" style="color:#38bdf8; text-decoration:none; font-size:13px;">rongnhonhatrang.vn/san-pham-so</a>
+      </div>
+      <div class="mini-card" style="text-align:center;">
+        <div style="font-size:32px; margin-bottom:10px;">📱</div>
+        <div style="font-weight:700; margin-bottom:6px;">Telegram Bot AI 24/7</div>
+        <a href="https://t.me/rongnhonhatrang_bot" target="_blank" style="color:#38bdf8; text-decoration:none; font-size:13px;">@rongnhonhatrang_bot</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
