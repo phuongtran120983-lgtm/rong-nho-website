@@ -113,8 +113,23 @@ exports.handler = async function (event) {
     };
   }
 
-  // 3. GET /api/orders -> Lấy toàn bộ đơn hàng
+  // 3. GET /api/orders -> BẢO MẬT: Chặn truy cập công khai để bảo vệ thông tin khách hàng
   if (event.httpMethod === 'GET') {
+    const authHeader = (event.headers && (event.headers['authorization'] || event.headers['Authorization'])) || '';
+    const adminToken = query.admin_key || query.token || '';
+    const validToken = process.env.ADMIN_SECRET_KEY || 'rongnho_admin_secure_2026';
+
+    if (!authHeader.includes('Bearer ' + validToken) && adminToken !== validToken) {
+      return {
+        statusCode: 401,
+        headers,
+        body: JSON.stringify({
+          error: "Unauthorized",
+          message: "Truy cập bị từ chối. API danh sách đơn hàng đã được bảo mật để ngăn chặn rò rỉ thông tin khách hàng theo tiêu chuẩn an toàn Focus Camp. Yêu cầu quyền Quản trị viên (Admin)."
+        })
+      };
+    }
+
     const orders = await getAllOrders(store);
     return {
       statusCode: 200,

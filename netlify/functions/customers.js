@@ -59,6 +59,21 @@ exports.handler = async function (event) {
   }
 
   if (event.httpMethod === 'GET') {
+    const authHeader = (event.headers && (event.headers['authorization'] || event.headers['Authorization'])) || '';
+    const adminToken = (event.queryStringParameters && (event.queryStringParameters.admin_key || event.queryStringParameters.token)) || '';
+    const validToken = process.env.ADMIN_SECRET_KEY || 'rongnho_admin_secure_2026';
+
+    if (!authHeader.includes('Bearer ' + validToken) && adminToken !== validToken) {
+      return {
+        statusCode: 401,
+        headers,
+        body: JSON.stringify({
+          error: "Unauthorized",
+          message: "Thông tin cá nhân khách hàng (Số điện thoại, Email, Địa chỉ) được bảo mật tuyệt đối. Yêu cầu quyền Quản trị viên (Admin)."
+        })
+      };
+    }
+
     const list = await getAllCustomers(store);
     return { statusCode: 200, headers, body: JSON.stringify(list) };
   }
