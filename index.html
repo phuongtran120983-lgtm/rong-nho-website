@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rong Nho Tách Nước Công Nghệ Nhật Bản - Tươi Ngon Giòn Rụm</title>
+  <title>Rong Nho Tách Nước Nha Trang - Đặc Sản Biển Khánh Hòa Tươi Giòn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     
     :root {
-      --font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     body, input, textarea, select, button {
-      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: #2d3748;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1f2937;
+      letter-spacing: -0.011em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     h1, h2, h3, h4, h5, h6, .font-heading {
-      font-family: 'Quicksand', 'Nunito', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.025em;
     }
     .brand-green { background-color: #0b6e3f; }
     .text-brand-green { color: #0b6e3f; }
@@ -44,10 +50,10 @@
   <!-- TOP PROMO BANNER -->
   <div class="bg-red-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-sm flex items-center justify-center gap-2">
     <span class="inline-block animate-bounce">🔥</span>
-    <span><strong>ƯU ĐÃI ĐẶC BIỆT:</strong> Mua 3 Tặng 1 + Tặng Sốt Mè Rang Nhật + Miễn Phí Giao Hàng Toàn Quốc Hôm Nay!</span>
+    <span><strong>ƯU ĐÃI ĐẶC BIỆT:</strong> Mua 3 Tặng 1 + Tặng Sốt Mè Rang Thơm Béo + Miễn Phí Giao Hàng Toàn Quốc Hôm Nay!</span>
   </div>
 
-  <!-- HEADER (PHONG CÁCH MOSHIMOSHI NHẬT BẢN) -->
+  <!-- HEADER CHÍNH -->
   <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 gap-4">
@@ -60,7 +66,7 @@
           </div>
           <div>
             <div class="font-black text-xl tracking-wider text-emerald-900 leading-none">RONG NHO NHA TRANG</div>
-            <div class="text-[10px] tracking-widest text-gray-500 font-semibold uppercase mt-0.5">Công Nghệ Tách Nước Nhật Bản</div>
+            <div class="text-[10px] tracking-widest text-emerald-700 font-semibold uppercase mt-0.5">Đặc Sản Biển Khánh Hòa</div>
           </div>
         </div>
 
@@ -127,9 +133,9 @@
 
   <!-- BREADCRUMB -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-gray-500">
-    <a href="#" class="hover:underline">Trang chủ</a> / 
-    <a href="#" class="hover:underline">Rong nho Nhật Bản</a> / 
-    <span class="text-gray-800 font-medium">Rong Nho Tách Nước Công Nghệ Nhật Bản (Loại 1)</span>
+    <a href="/" class="hover:underline">Trang chủ</a> / 
+    <a href="#bang-gia" class="hover:underline">Rong Nho Tách Nước</a> / 
+    <span class="text-gray-800 font-medium">Rong Nho Tách Nước Nha Trang (Loại 1)</span>
   </div>
 
   <!-- MAIN PRODUCT HERO (PHẦN 1 & BỐ CỤC THEO ẢNH MOSHIMOSHI) -->
@@ -141,14 +147,14 @@
         <div class="lg:col-span-5">
           <!-- Ảnh lớn -->
           <div class="relative rounded-2xl overflow-hidden border-2 border-emerald-600/30 bg-emerald-950 aspect-square group shadow-xl">
-            <img id="main-product-img" src="/images/rong_nho_tuoi_nguyen_chum.jpg" alt="Rong nho tách nước công nghệ Nhật Bản" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <img id="main-product-img" src="/images/rong_nho_tuoi_nguyen_chum.jpg" alt="Rong nho tách nước Nha Trang tươi giòn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             
             <div class="absolute top-3 left-3 bg-red-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide flex items-center gap-1">
               <span>🔥</span> Chính Hãng Khánh Hòa
             </div>
             
             <div class="absolute top-3 right-3 bg-emerald-700/90 backdrop-blur-xs text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg border border-emerald-400/40">
-              Công Nghệ Tách Nước Nhật Bản
+              Tươi Giòn Tự Nhiên
             </div>
 
             <!-- Overlay Badge -->
@@ -180,9 +186,9 @@
         <!-- CỘT 2: THÔNG TIN CHI TIẾT & ĐẶT MUA (4 CỘT) -->
         <div class="lg:col-span-4 flex flex-col justify-between">
           <div>
-            <div class="text-xs font-semibold text-emerald-800 uppercase tracking-wider mb-1">Siêu Thực Phẩm Đại Dương Chuẩn Nhật</div>
+            <div class="text-xs font-semibold text-emerald-800 uppercase tracking-wider mb-1">Siêu Thực Phẩm Xanh Từ Biển Khánh Hòa</div>
             <h1 class="text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
-              Rong Nho Tách Nước Nhật Bản (Loại 1)
+              Rong Nho Tách Nước Nha Trang (Loại 1)
             </h1>
 
             <div class="flex items-center gap-4 text-xs text-gray-500 mt-2 pb-3 border-b border-gray-200">
@@ -209,13 +215,13 @@
                 <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-0.5 rounded">-50%</span>
               </div>
               <div class="text-xs text-red-600 font-semibold mt-1">
-                🎁 Tặng kèm 2 chai sốt mè rang Nhật + Freeship toàn quốc cho Combo!
+                🎁 Tặng kèm 2 chai sốt mè rang thơm béo + Freeship toàn quốc cho Combo!
               </div>
             </div>
 
             <!-- Mô tả ngắn -->
             <p class="text-xs text-gray-600 leading-relaxed mb-4">
-              Rong nho hay còn gọi là <strong>"Trứng cá hồi xanh"</strong> của đại dương. Ứng dụng công nghệ sấy lạnh ly tâm Nhật Bản, giữ nguyên 99% khoáng chất, Canxi, Vitamin và độ giòn rụm sần sật mát lạnh.
+              Rong nho hay còn gọi là <strong>"Trứng cá hồi xanh"</strong> của đại dương. Trải qua quy trình tách nước ly tâm hiện đại, giữ nguyên 99% khoáng chất, Canxi, Vitamin và độ giòn rụm sần sật mát lạnh tự nhiên.
             </p>
 
             <!-- Bộ chọn số lượng & Nút Mua -->
@@ -274,8 +280,8 @@
                 🛡️
               </div>
               <div>
-                <div class="font-bold text-gray-900">Chính hãng chuẩn Nhật</div>
-                <div class="text-gray-500 text-[11px] mt-0.5">Nuôi trồng tại vùng biển sạch Nha Trang - Khánh Hòa.</div>
+                <div class="font-bold text-gray-900">Chính hãng Khánh Hòa</div>
+                <div class="text-gray-500 text-[11px] mt-0.5">Nuôi trồng tự nhiên tại vùng biển sạch Nha Trang - Khánh Hòa.</div>
               </div>
             </div>
 
@@ -378,7 +384,7 @@
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="text-emerald-700 font-black text-xs uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full">Giải pháp toàn diện</span>
         <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-2">
-          RONG NHO TÁCH NƯỚC CÔNG NGHỆ SẤY LẠNH NHẬT BẢN
+          RONG NHO TÁCH NƯỚC TỰ NHIÊN NHA TRANG
         </h2>
         <p class="text-xs sm:text-sm text-gray-600 mt-2">
           Giữ trọn 99% dưỡng chất quý giá từ biển sâu, giòn tươi mát như vừa mới thu hoạch.
@@ -491,7 +497,7 @@
           <div>
             <h3 class="font-bold text-gray-900 text-base">Biến Tấu Đa Dạng Món Ăn Sang Trọng</h3>
             <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">
-              Chấm trực tiếp sốt mè rang Nhật Bản, trộn salad cá hồi/ức gà, ăn kèm đồ nướng, lẩu, sushi hoặc sashimi giải ngấy cực kỳ hiệu quả và chuẩn vị nhà hàng.
+              Chấm trực tiếp sốt mè rang thơm béo, trộn salad cá hồi/ức gà, ăn kèm đồ nướng, lẩu, sushi hoặc sashimi giải ngấy cực kỳ hiệu quả và chuẩn vị nhà hàng.
             </p>
           </div>
         </div>
@@ -532,7 +538,7 @@
         <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-2">
           3 BƯỚC ĐƠN GIẢN CÓ NGAY ĐĨA RONG GIÒN RỤM TÍ TÁCH
         </h2>
-        <p class="text-xs sm:text-sm text-gray-500 mt-2">Chỉ mất 5 phút chuẩn bị để cả gia đình có món ăn tươi mát chuẩn nhà hàng Nhật.</p>
+        <p class="text-xs sm:text-sm text-gray-500 mt-2">Chỉ mất 5 phút chuẩn bị để cả gia đình có món ăn tươi mát, giòn rụm chuẩn vị biển Nha Trang.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -640,7 +646,7 @@
             </div>
             <ul class="text-xs text-gray-700 space-y-2.5 pb-6 border-b border-gray-100 font-medium">
               <li class="flex items-center gap-2 text-emerald-700 font-bold">✓ <strong>Tổng 4 Hộp (20 gói tách nước)</strong></li>
-              <li class="flex items-center gap-2 text-emerald-700 font-bold">✓ <strong>Tặng 2 chai sốt mè rang Nhật Bản</strong></li>
+              <li class="flex items-center gap-2 text-emerald-700 font-bold">✓ <strong>Tặng 2 chai sốt mè rang thơm béo</strong></li>
               <li class="flex items-center gap-2 text-red-600 font-bold">✓ <strong>MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC</strong></li>
               <li class="flex items-center gap-2">✓ Kiểm tra hàng trước khi thanh toán</li>
             </ul>
@@ -661,7 +667,7 @@
             </div>
             <ul class="text-xs text-gray-600 space-y-2.5 pb-6 border-b border-gray-100">
               <li class="flex items-center gap-2">✓ <strong>Tổng 7 Hộp (35 gói tách nước)</strong></li>
-              <li class="flex items-center gap-2">✓ <strong>Tặng 4 chai sốt mè rang Nhật</strong></li>
+              <li class="flex items-center gap-2">✓ <strong>Tặng 4 chai sốt mè rang thơm béo</strong></li>
               <li class="flex items-center gap-2 text-red-600 font-bold">✓ <strong>MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC</strong></li>
             </ul>
           </div>
@@ -788,7 +794,7 @@
         <!-- Header Phiếu khảo sát -->
         <div class="text-center mb-8">
           <span class="inline-flex items-center gap-1.5 bg-orange-100 text-orange-700 px-3.5 py-1 rounded-full text-xs font-bold mb-3">
-            🎁 TẶNG VOUCHER 40% + SỐT MÈ RANG NHẬT BẢN
+            🎁 TẶNG VOUCHER 40% + SỐT MÈ RANG THƠM BÉO
           </span>
           <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-gray-900 leading-tight">
             KHẢO SÁT NHANH: 30 GIÂY CHIA SẺ – NHẬN QUÀ TẶNG SỐT MÈ RANG
@@ -798,7 +804,7 @@
             <p><strong>Chào bạn!</strong></p>
             <p>Thật ra tụi mình làm bảng khảo sát ngắn này chỉ với một mong muốn: <strong>Lắng nghe chia sẻ thật lòng từ bạn</strong> để mang đến những hộp rong nho Nha Trang tươi giòn, chuẩn sạch và đúng khẩu vị nhất.</p>
             <p>Bảng khảo sát này <strong>siêu ngắn, mất chưa tới 30 giây</strong> của bạn đâu!</p>
-            <p>Để cảm ơn bạn đã dành chút thời gian quý báu, sau khi điền xong tụi mình xin phép gửi tặng bạn <strong>1 voucher ưu đãi 40% + tặng kèm chai Sốt mè rang Nhật Bản</strong> trong đơn hàng đầu tiên nha! ❤️</p>
+            <p>Để cảm ơn bạn đã dành chút thời gian quý báu, sau khi điền xong tụi mình xin phép gửi tặng bạn <strong>1 voucher ưu đãi 40% + tặng kèm chai Sốt mè rang thơm béo</strong> trong đơn hàng đầu tiên nha! ❤️</p>
           </div>
         </div>
 
@@ -951,7 +957,7 @@
             ĐẶT MUA RONG NHO NHẬN ƯU ĐÃI
           </h2>
           <p class="text-xs sm:text-sm text-gray-500 mt-2 max-w-lg mx-auto">
-            Giao hàng nhanh toàn quốc • Kiểm tra hàng trước khi thanh toán • 100% Rong nho chuẩn công nghệ Nhật Bản
+            Giao hàng nhanh toàn quốc • Kiểm tra hàng trước khi thanh toán • 100% Rong nho tươi sạch Khánh Hòa
           </p>
         </div>
 
@@ -1004,7 +1010,7 @@
                       <span class="bg-red-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">🔥 Bán chạy nhất</span>
                     </div>
                     <div class="text-xs text-emerald-700 font-medium mt-0.5">
-                      ✓ Tặng 2 chai sốt mè rang mè Nhật + Miễn phí ship toàn quốc
+                      ✓ Tặng 2 chai sốt mè rang thơm béo + Miễn phí ship toàn quốc
                     </div>
                   </div>
                 </div>
@@ -1024,7 +1030,7 @@
                       <span class="bg-orange-500 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">⭐ Siêu Tiết Kiệm</span>
                     </div>
                     <div class="text-xs text-gray-600 font-medium mt-0.5">
-                      ✓ Tặng 4 chai sốt mè rang mè Nhật + Miễn phí ship toàn quốc
+                      ✓ Tặng 4 chai sốt mè rang thơm béo + Miễn phí ship toàn quốc
                     </div>
                   </div>
                 </div>
@@ -1129,7 +1135,7 @@
         <div>
           <div class="text-white font-black text-base tracking-wider mb-2">CÔNG TY TNHH THU MUA RONG MƠ AN PHÁT</div>
           <p class="text-[11px] leading-relaxed text-gray-400">
-            Chuyên nuôi trồng và cung cấp Rong Nho Tách Nước Nha Trang (Khánh Hòa) theo quy trình tách nước ly tâm công nghệ Nhật Bản, tự nhiên và an toàn cho sức khỏe mọi gia đình Việt.
+            Chuyên nuôi trồng và cung cấp Rong Nho Tách Nước Nha Trang (Khánh Hòa) theo quy trình tách nước ly tâm hiện đại, tự nhiên và an toàn cho sức khỏe mọi gia đình Việt.
           </p>
         </div>
         <div>
